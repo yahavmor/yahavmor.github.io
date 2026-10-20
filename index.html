@@ -1,0 +1,1092 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yahav Mor · Full-Stack Developer & Automation Builder</title>
+<meta name="description" content="Yahav Mor: full-stack developer (React, Node.js, MongoDB) with a systems-integration background at Elbit Systems, and a Make automation builder with 90+ scenarios built.">
+<link rel="canonical" href="https://yahavmor.github.io/">
+<meta name="author" content="Yahav Mor">
+<meta name="theme-color" content="#F3F5F8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A1120" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yahavmor.github.io/">
+<meta property="og:title" content="Yahav Mor · Full-Stack Developer & Automation Builder">
+<meta property="og:description" content="React, Node.js and MongoDB developer with a systems-integration background. 90+ Make automations built. Hebrew and English.">
+<meta property="og:image" content="https://yahavmor.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Yahav Mor: I make systems talk to each other.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Yahav Mor", "jobTitle": "Full-Stack Developer", "url": "https://yahavmor.github.io/", "email": "mailto:yahavmor77@gmail.com", "sameAs": ["https://github.com/yahavmor", "https://yahav-automations.netlify.app"], "address": {"@type": "PostalAddress", "addressLocality": "Kibbutz Na'an", "addressCountry": "IL"}, "knowsAbout": ["React", "Redux", "Node.js", "Express", "MongoDB", "Make", "Business automation", "Systems integration"], "knowsLanguage": ["he", "en"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Secular+One&display=swap">
+<script>
+(function(){
+  var l = null;
+  try { var h = (location.hash || "").slice(1).toLowerCase(); if (h === "he" || h === "en") l = h; } catch (e) {}
+  if (!l) { try { l = localStorage.getItem("ym-lang"); } catch (e) {} }
+  if (l !== "he" && l !== "en") {
+    var n = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
+    l = /^(he|iw)/i.test(n) ? "he" : "en";
+  }
+  document.documentElement.lang = l;
+  document.documentElement.dir = l === "he" ? "rtl" : "ltr";
+})();
+</script>
+<style>
+/* Layout: an engineer's datasheet. Thesis + a live block diagram (Fig. 1) of this site's own contact automation,
+   then spec tables, case-study cards, a timeline, and a contact form that actually runs Fig. 1.
+   Two "scope channels" encode the two audiences: CH1 amber = developer work, CH2 teal = automation work. */
+:root{
+  --paper:#F3F5F8;
+  --paper-2:#EBEFF4;
+  --sheet:#FFFFFF;
+  --ink:#0F1B33;
+  --ink-2:#3E4A63;
+  --ink-3:#5F6B83;
+  --rule:#D6DCE6;
+  --rule-2:#E6EAF0;
+  --grid:#E9EDF3;
+  --ch1:#9A6100;
+  --ch1-tint:#FAF0DA;
+  --ch2:#0B746F;
+  --ch2-tint:#DCF2EF;
+  --err:#B42318;
+  --err-tint:#FDECEA;
+  --focus:#2F6BFF;
+  --on-ink:#FFFFFF;
+  --shadow:0 1px 2px rgba(15,27,51,.06),0 10px 28px -14px rgba(15,27,51,.22);
+  --font-display:"Secular One","IBM Plex Sans Hebrew",system-ui,sans-serif;
+  --font-body:"IBM Plex Sans","IBM Plex Sans Hebrew",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,"IBM Plex Sans Hebrew",monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0A1120; --paper-2:#0D1628; --sheet:#111B2F; --ink:#E8EDF6; --ink-2:#B1BBCE; --ink-3:#8692AA;
+    --rule:#24324D; --rule-2:#1A2741; --grid:#16223A; --ch1:#F0B43C; --ch1-tint:#2B220F; --ch2:#43D1C3; --ch2-tint:#0F2B2D;
+    --err:#FF8A80; --err-tint:#3A1718; --focus:#86A8FF; --on-ink:#0A1120;
+    --shadow:0 1px 2px rgba(0,0,0,.45),0 12px 30px -14px rgba(0,0,0,.7);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0A1120; --paper-2:#0D1628; --sheet:#111B2F; --ink:#E8EDF6; --ink-2:#B1BBCE; --ink-3:#8692AA;
+  --rule:#24324D; --rule-2:#1A2741; --grid:#16223A; --ch1:#F0B43C; --ch1-tint:#2B220F; --ch2:#43D1C3; --ch2-tint:#0F2B2D;
+  --err:#FF8A80; --err-tint:#3A1718; --focus:#86A8FF; --on-ink:#0A1120;
+  --shadow:0 1px 2px rgba(0,0,0,.45),0 12px 30px -14px rgba(0,0,0,.7);
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+:root[lang="he"] body{line-height:1.72}
+:root:not([lang="he"]) [data-l="he"],:root[lang="he"] [data-l="en"]{display:none!important}
+img,svg{max-width:100%}
+a{color:inherit}
+p,li,dd{text-wrap:pretty}
+::selection{background:var(--ch2-tint);color:var(--ink)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:6px}
+.skip{position:absolute;inset-inline-start:12px;top:-60px;z-index:100;background:var(--ink);color:var(--on-ink);padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:600}
+.skip:focus{top:calc(10px + env(safe-area-inset-top,0px))}
+
+.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none}
+:root[dir="rtl"] .flip{transform:scaleX(-1)}
+
+.wrap{max-width:1160px;margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+/* ---------- header ---------- */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--paper);border-bottom:1px solid var(--rule)}
+@supports (backdrop-filter:blur(4px)) or (-webkit-backdrop-filter:blur(4px)){
+  .site-head{background:color-mix(in srgb,var(--paper) 84%,transparent);backdrop-filter:saturate(1.3) blur(12px);-webkit-backdrop-filter:saturate(1.3) blur(12px)}
+}
+.head-in{display:flex;align-items:center;gap:18px;min-height:66px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);font-weight:600;font-size:16px;white-space:nowrap}
+.chip{position:relative;display:grid;place-items:center;width:40px;height:30px;border:1.5px solid var(--ink);border-radius:4px;font:500 12px/1 var(--font-mono);letter-spacing:.05em;direction:ltr}
+.chip::before,.chip::after{content:"";position:absolute;top:5px;bottom:5px;width:5px;background:repeating-linear-gradient(to bottom,var(--ink) 0 2px,transparent 2px 5px)}
+.chip::before{left:-6.5px}
+.chip::after{right:-6.5px}
+.chip i{position:absolute;top:3px;left:3px;width:4px;height:4px;border-radius:50%;background:var(--ink)}
+.nav{display:flex;gap:2px;margin-inline-start:auto}
+.nav a{color:var(--ink-2);text-decoration:none;font-size:15px;font-weight:500;padding:8px 12px;border-radius:7px}
+.nav a:hover{color:var(--ink);background:var(--rule-2)}
+.head-actions{display:flex;align-items:center;gap:10px}
+.btn-lang{font:500 13px/1 var(--font-body);border:1px solid var(--rule);background:var(--sheet);color:var(--ink);padding:10px 12px;border-radius:8px;cursor:pointer;min-width:74px}
+.btn-lang:hover{border-color:var(--ink-3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 15px/1.2 var(--font-body);text-decoration:none;border-radius:9px;padding:11px 16px;border:1px solid transparent;cursor:pointer;white-space:nowrap;transition:background-color .2s,border-color .2s,color .2s}
+.btn-primary{background:var(--ink);color:var(--on-ink)}
+.btn-primary:hover{background:var(--ink-2)}
+.btn-ghost{background:var(--sheet);color:var(--ink);border-color:var(--rule)}
+.btn-ghost:hover{border-color:var(--ink-3)}
+.btn-sm{padding:9px 13px;font-size:14px}
+@media (max-width:860px){.nav{display:none}.head-actions{margin-inline-start:auto}}
+@media (max-width:360px){.brand-name{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding-block:64px 56px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:56px;align-items:start}
+@media (max-width:980px){.hero-grid{grid-template-columns:minmax(0,1fr);gap:44px}}
+.eyebrow{font:500 12.5px/1.5 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0}
+:root[lang="he"] .eyebrow{letter-spacing:.01em;font-size:13.5px;text-transform:none}
+h1{font-family:var(--font-display);font-weight:400;font-size:clamp(2.55rem,5.4vw,4.4rem);line-height:1.03;letter-spacing:-.012em;margin:18px 0 22px;text-wrap:balance}
+:root[lang="he"] h1{line-height:1.1;letter-spacing:0}
+.lede{font-size:1.16rem;line-height:1.6;color:var(--ink-2);max-width:56ch;margin:0}
+.paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:34px}
+@media (max-width:560px){.paths{grid-template-columns:minmax(0,1fr)}}
+.path{display:flex;flex-direction:column;gap:10px;padding:18px 18px 16px;border:1px solid var(--rule);border-radius:12px;background:var(--sheet);text-decoration:none;color:var(--ink);transition:border-color .2s,transform .2s,box-shadow .2s}
+.path:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.path.ch1:hover{border-color:var(--ch1)}
+.path.ch2:hover{border-color:var(--ch2)}
+.badge{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font:500 11.5px/1 var(--font-mono);letter-spacing:.06em;padding:6px 8px;border-radius:6px;white-space:nowrap}
+.ch1 .badge,.badge.ch1{color:var(--ch1);background:var(--ch1-tint)}
+.ch2 .badge,.badge.ch2{color:var(--ch2);background:var(--ch2-tint)}
+.path strong{font-size:1.07rem;line-height:1.35}
+.path .go{display:flex;align-items:center;gap:6px;margin-top:auto;font-size:14.5px;color:var(--ink-2)}
+.path .go .i{width:16px;height:16px;transition:transform .2s}
+.path:hover .go .i{transform:translateX(3px)}
+:root[dir="rtl"] .path:hover .go .i{transform:scaleX(-1) translateX(3px)}
+.quick{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:22px;font-size:14.5px;color:var(--ink-2)}
+.quick a{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--ink-2)}
+.quick a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.quick .i{width:16px;height:16px}
+
+/* Fig. 1 */
+.fig{border:1px solid var(--rule);border-radius:14px;background:var(--sheet);overflow:hidden;box-shadow:var(--shadow)}
+.fig-head{padding:14px 18px 13px;border-bottom:1px solid var(--rule);display:grid;gap:3px}
+.cap{font:500 11.5px/1.4 var(--font-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+:root[lang="he"] .cap{letter-spacing:.01em;font-size:12.5px}
+.fig-title{font-weight:600;font-size:15px;line-height:1.4}
+.fig-body{padding:18px 18px 8px;background-color:var(--sheet);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;background-position:-1px -1px}
+.chain{list-style:none;margin:0;padding:0;position:relative}
+.chain::before{content:"";position:absolute;inset-inline-start:17px;top:22px;bottom:22px;border-inline-start:2px dashed var(--rule)}
+.chain .fill{position:absolute;inset-inline-start:17px;top:22px;width:2px;height:0;background:var(--ch2);transition:height .55s cubic-bezier(.4,0,.2,1)}
+.chain .pulse{position:absolute;inset-inline-start:13px;top:17px;width:10px;height:10px;border-radius:50%;background:var(--ch2);box-shadow:0 0 0 5px var(--ch2-tint);opacity:0;transition:top .55s cubic-bezier(.4,0,.2,1),opacity .3s;z-index:2}
+.step{position:relative;display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:14px;align-items:start;padding-block:8px}
+.node{position:relative;z-index:1;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--rule);background:var(--sheet);display:grid;place-items:center;color:var(--ink-3);transition:border-color .3s,background-color .3s,color .3s}
+.node .i{width:17px;height:17px}
+.step.lit .node{border-color:var(--ch2);background:var(--ch2-tint);color:var(--ch2)}
+.step-name{font-weight:600;font-size:15px;line-height:1.3;margin-top:1px}
+.step-detail{font-size:14px;line-height:1.45;color:var(--ink-2)}
+.step-idx{font:500 11.5px/1 var(--font-mono);color:var(--ink-3);margin-top:7px;direction:ltr}
+.step.lit .step-idx{color:var(--ch2)}
+.fig-foot{display:flex;justify-content:space-between;align-items:center;gap:6px 14px;flex-wrap:wrap;padding:12px 18px;border-top:1px solid var(--rule);font:500 12px/1.5 var(--font-mono);color:var(--ink-3)}
+.live{display:inline-flex;align-items:center;gap:8px;color:var(--ch2)}
+.live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ch2);box-shadow:0 0 0 3px var(--ch2-tint)}
+.fig-status{font-variant-numeric:tabular-nums}
+
+/* Table 1: key specs */
+.specs{margin-top:60px}
+.specs .cap{display:block;margin-bottom:12px}
+.spec-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0;border-top:1px solid var(--rule);border-inline-start:1px solid var(--rule);background:var(--sheet);border-radius:12px;overflow:hidden;border:1px solid var(--rule)}
+.spec{padding:15px 18px;border-inline-end:1px solid var(--rule);border-bottom:1px solid var(--rule);min-width:0}
+.spec:nth-child(3n){border-inline-end:0}
+.spec:nth-last-child(-n+3){border-bottom:0}
+.spec dt{font:500 11.5px/1.3 var(--font-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+:root[lang="he"] .spec dt{letter-spacing:.01em;font-size:12.5px}
+.spec dd{margin:0;font-weight:500;font-size:15.5px;line-height:1.45}
+@media (max-width:860px){
+  .spec-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .spec:nth-child(3n){border-inline-end:1px solid var(--rule)}
+  .spec:nth-child(2n){border-inline-end:0}
+  .spec:nth-last-child(-n+3){border-bottom:1px solid var(--rule)}
+  .spec:nth-last-child(-n+2){border-bottom:0}
+}
+@media (max-width:520px){
+  .spec-grid{grid-template-columns:minmax(0,1fr)}
+  .spec,.spec:nth-child(3n),.spec:nth-child(2n){border-inline-end:0}
+  .spec:nth-last-child(-n+2){border-bottom:1px solid var(--rule)}
+  .spec:last-child{border-bottom:0}
+}
+
+/* ---------- sections ---------- */
+.block{padding-block:88px;border-top:1px solid var(--rule);scroll-margin-top:66px}
+.block.band{background:var(--sheet)}
+@media (max-width:700px){.block{padding-block:64px}.hero{padding-block:44px 48px}}
+.sec-label{display:flex;align-items:center;gap:12px;font:500 12.5px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0}
+:root[lang="he"] .sec-label{letter-spacing:.01em;font-size:13.5px}
+.sec-label::after{content:"";width:72px;height:1px;background:var(--rule)}
+h2{font-family:var(--font-display);font-weight:400;font-size:clamp(2.05rem,3.7vw,2.95rem);line-height:1.08;margin:16px 0 14px;text-wrap:balance}
+:root[lang="he"] h2{line-height:1.15}
+.sec-lede{color:var(--ink-2);max-width:62ch;margin:0 0 44px;font-size:1.09rem}
+.auto-grid .sec-lede{margin-bottom:22px}
+h3{font-size:1.45rem;line-height:1.25;margin:10px 0 8px;font-weight:700;text-wrap:balance}
+h4{font-size:1.08rem;line-height:1.3;margin:0;font-weight:700}
+.tag{font:500 11.5px/1.3 var(--font-mono);letter-spacing:.07em;text-transform:uppercase;margin:0;color:var(--ink-3)}
+:root[lang="he"] .tag{letter-spacing:.01em;font-size:12.5px}
+.tag.ch1{color:var(--ch1)}
+.tag.ch2{color:var(--ch2)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.tags li{font:500 12px/1 var(--font-mono);padding:6px 8px;border-radius:6px;background:var(--rule-2);color:var(--ink-2);direction:ltr}
+.link-row{display:flex;flex-wrap:wrap;gap:10px}
+.txt-link{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:15px;text-decoration:none;color:var(--ink)}
+.txt-link:hover{text-decoration:underline;text-underline-offset:3px}
+.txt-link .i{width:16px;height:16px}
+
+/* ---------- work ---------- */
+.case{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);border:1px solid var(--rule);border-radius:16px;background:var(--sheet);overflow:hidden}
+.case-main{padding:34px 34px 32px}
+.case-side{padding:30px;border-inline-start:1px solid var(--rule);background:var(--paper-2);display:flex;flex-direction:column;gap:26px}
+@media (max-width:920px){.case{grid-template-columns:minmax(0,1fr)}.case-side{border-inline-start:0;border-top:1px solid var(--rule)}}
+@media (max-width:520px){.case-main,.case-side{padding:24px 20px}}
+.case-sub{color:var(--ink-2);margin:0 0 24px;max-width:60ch}
+.built-h{font:500 11.5px/1 var(--font-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);margin:0 0 14px}
+:root[lang="he"] .built-h{letter-spacing:.01em;font-size:12.5px}
+.built{list-style:none;padding:0;margin:0 0 26px;display:grid;gap:13px}
+.built li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:12px;font-size:15.5px;line-height:1.55}
+.built li::before{content:"";width:8px;height:8px;margin-top:8px;border-radius:2px;background:var(--ch2)}
+.stat{display:grid;gap:4px}
+.stat b{font-family:var(--font-display);font-weight:400;font-size:3.3rem;line-height:1;color:var(--ch2);font-variant-numeric:tabular-nums}
+.stat span{font-size:14.5px;line-height:1.45;color:var(--ink-2);max-width:30ch}
+.flow{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.flow li{display:grid;justify-items:start}
+.flow .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;background:var(--sheet);border:1px solid var(--rule);font-size:14px;font-weight:500;line-height:1.2}
+.flow li:not(:last-child)::after{content:"";width:2px;height:14px;margin-inline-start:18px;background:repeating-linear-gradient(to bottom,var(--ch2) 0 3px,transparent 3px 6px)}
+.flow-cap{font-size:13.5px;color:var(--ink-3);margin:10px 0 0}
+
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:20px}
+@media (max-width:860px){.duo{grid-template-columns:minmax(0,1fr)}}
+.card{border:1px solid var(--rule);border-radius:16px;background:var(--sheet);padding:28px;display:flex;flex-direction:column;gap:14px;min-width:0}
+@media (max-width:520px){.card{padding:22px 20px}}
+.card>p:not(.tag){margin:0;color:var(--ink-2);font-size:15.5px;flex-grow:1}
+.card h3{margin:2px 0 0}
+.card .link-row{padding-top:6px}
+.viz{border:1px solid var(--rule);border-radius:12px;background:var(--paper);padding:14px;min-height:118px;display:grid;align-content:center}
+.notif{display:grid;grid-template-columns:38px minmax(0,1fr);gap:12px;align-items:center;background:var(--sheet);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;box-shadow:var(--shadow)}
+.notif .ic{width:38px;height:38px;border-radius:9px;display:grid;place-items:center;background:var(--ch2-tint);color:var(--ch2)}
+.notif strong{display:block;font-size:14.5px;line-height:1.3}
+.notif span{font-size:13px;color:var(--ink-3)}
+.viz-cap{font:500 11px/1 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-top:10px}
+:root[lang="he"] .viz-cap{letter-spacing:0;font-size:12px}
+.sheet-viz{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:3px;direction:ltr}
+.sheet-viz i{height:15px;border-radius:2px;background:var(--rule-2)}
+.sheet-viz i.h{background:var(--rule)}
+.sheet-viz i.hl{background:var(--ch2-tint)}
+.sheet-viz i.bar{background:linear-gradient(90deg,var(--ch2) var(--w,60%),var(--ch2-tint) var(--w,60%))}
+
+.sub-h{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:64px 0 18px}
+.sub-h h3{margin:0;font-size:1.3rem}
+.sub-h p{margin:0;font-size:14.5px;color:var(--ink-3)}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:920px){.trio{grid-template-columns:minmax(0,1fr)}}
+.mini{border:1px solid var(--rule);border-radius:14px;background:var(--sheet);padding:22px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.mini-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.mini-top .i{width:20px;height:20px;color:var(--ch1)}
+.mini p{margin:0;color:var(--ink-2);font-size:15px;flex-grow:1}
+.mini .txt-link{margin-top:auto}
+
+/* ---------- automation ---------- */
+.auto-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+@media (max-width:920px){.auto-grid{grid-template-columns:minmax(0,1fr);gap:40px}}
+.gets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:56px}
+@media (max-width:980px){.gets{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.gets{grid-template-columns:minmax(0,1fr)}}
+.get{border:1px solid var(--rule);border-radius:12px;padding:18px;background:var(--paper);display:grid;gap:8px;align-content:start}
+.get .ic{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:var(--ch2-tint);color:var(--ch2)}
+.get h4{font-size:1rem}
+.get p{margin:0;font-size:14.5px;line-height:1.5;color:var(--ink-2)}
+.mini-h{font:500 11.5px/1 var(--font-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);margin:0 0 16px}
+:root[lang="he"] .mini-h{letter-spacing:.01em;font-size:12.5px}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:s}
+.steps li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;padding-block:14px;border-top:1px solid var(--rule)}
+.steps li:first-child{border-top:0;padding-top:0}
+.steps .n{font:500 13px/1 var(--font-mono);color:var(--ch2);border:1px solid var(--ch2);border-radius:7px;height:30px;display:grid;place-items:center;direction:ltr}
+.steps h4{font-size:1rem;margin-top:4px}
+.steps p{margin:2px 0 0;font-size:14.5px;color:var(--ink-2)}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 0;padding:0;list-style:none}
+.facts li{font-size:14px;font-weight:500;padding:8px 12px;border-radius:999px;border:1px solid var(--rule);background:var(--paper)}
+.fit{margin:0;font-size:15px;color:var(--ink-2)}
+.fit b{color:var(--ink)}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+
+/* ---------- experience ---------- */
+.exp-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:56px;align-items:start}
+@media (max-width:980px){.exp-grid{grid-template-columns:minmax(0,1fr);gap:48px}}
+.tl{list-style:none;margin:0;padding:0}
+.tl>li{display:grid;grid-template-columns:112px minmax(0,1fr);gap:22px;padding-block:22px;border-top:1px solid var(--rule)}
+.tl>li:first-child{border-top:0;padding-top:0}
+.when{font:500 13px/1.5 var(--font-mono);color:var(--ink-3);padding-top:3px;font-variant-numeric:tabular-nums}
+.when .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-inline-end:8px;vertical-align:1px;background:var(--ink-3)}
+.when .dot.ch1{background:var(--ch1)}
+.when .dot.ch2{background:var(--ch2)}
+.tl h4{font-size:1.12rem}
+.org{margin:2px 0 8px;color:var(--ink-2);font-size:15px}
+.tl ul{margin:0;padding-inline-start:18px;color:var(--ink-2);font-size:15px;display:grid;gap:4px;list-style:disc}
+.tl ul li::marker{color:var(--ink-3)}
+.tl p{margin:0;color:var(--ink-2);font-size:15px}
+@media (max-width:560px){.tl>li{grid-template-columns:minmax(0,1fr);gap:6px}}
+.skills{width:100%;border-collapse:collapse;background:var(--sheet);border:1px solid var(--rule);border-radius:12px;overflow:hidden}
+.skills caption{caption-side:top;text-align:start;padding-bottom:12px}
+.skills th,.skills td{text-align:start;vertical-align:top;padding:13px 16px;border-top:1px solid var(--rule)}
+.skills tr:first-child th,.skills tr:first-child td{border-top:0}
+.skills th{font:500 11.5px/1.5 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);width:34%;font-weight:500}
+:root[lang="he"] .skills th{letter-spacing:.01em;font-size:12.5px}
+.skills td{font-size:14.5px;line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:18px;font-size:13.5px;color:var(--ink-3)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{width:8px;height:8px;border-radius:50%;background:var(--ink-3)}
+.legend i.ch1{background:var(--ch1)}
+.legend i.ch2{background:var(--ch2)}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:48px;align-items:start}
+@media (max-width:920px){.contact-grid{grid-template-columns:minmax(0,1fr);gap:40px}}
+.form{border:1px solid var(--rule);border-radius:16px;background:var(--sheet);padding:28px;display:grid;gap:16px;box-shadow:var(--shadow)}
+@media (max-width:520px){.form{padding:22px 18px}}
+.row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:560px){.row2{grid-template-columns:minmax(0,1fr)}}
+.field{display:grid;gap:7px;min-width:0}
+.field label,.field legend{font-weight:600;font-size:14px;padding:0}
+.opt{font-weight:400;color:var(--ink-3)}
+input[type=text],input[type=email],input[type=tel],textarea{font:inherit;font-size:16px;line-height:1.4;width:100%;padding:12px 14px;border:1px solid var(--rule);border-radius:9px;background:var(--paper);color:var(--ink);transition:border-color .2s,background-color .2s}
+input::placeholder,textarea::placeholder{color:var(--ink-3);opacity:.8}
+input:focus,textarea:focus{outline:none;border-color:var(--focus);background:var(--sheet);box-shadow:0 0 0 3px color-mix(in srgb,var(--focus) 22%,transparent)}
+textarea{min-height:128px;resize:vertical}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.seg label{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:14.5px;padding:9px 13px;border:1px solid var(--rule);border-radius:999px;cursor:pointer;background:var(--paper);transition:border-color .2s,background-color .2s,color .2s}
+.seg label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--rule)}
+.seg label:hover{border-color:var(--ink-3)}
+.seg input:focus-visible+label{outline:2px solid var(--focus);outline-offset:2px}
+.seg input[value=job]:checked+label{border-color:var(--ch1);background:var(--ch1-tint);color:var(--ch1)}
+.seg input[value=job]:checked+label::before{background:var(--ch1)}
+.seg input[value=automation]:checked+label{border-color:var(--ch2);background:var(--ch2-tint);color:var(--ch2)}
+.seg input[value=automation]:checked+label::before{background:var(--ch2)}
+.seg input[value=other]:checked+label{border-color:var(--ink);color:var(--ink)}
+.seg input[value=other]:checked+label::before{background:var(--ink)}
+.hp{position:absolute!important;inset-inline-start:-9999px;width:1px;height:1px;overflow:hidden}
+.form-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.form-note{font-size:13.5px;color:var(--ink-3);margin:0;max-width:40ch}
+.btn[disabled]{opacity:.65;cursor:progress}
+.runbar{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.runbar div{display:grid;gap:6px}
+.runbar i{height:4px;border-radius:2px;background:var(--rule);transition:background-color .3s}
+.runbar div.on i{background:var(--ch2)}
+.runbar span{font:500 10.5px/1.2 var(--font-mono);color:var(--ink-3);letter-spacing:.03em;overflow-wrap:anywhere}
+:root[lang="he"] .runbar span{font-size:11.5px;letter-spacing:0}
+.status{border-radius:10px;padding:12px 14px;font-size:15px;line-height:1.5}
+.status.ok{background:var(--ch2-tint);color:var(--ch2)}
+.status.err{background:var(--err-tint);color:var(--err)}
+.status.wait{background:var(--paper-2);color:var(--ink-2)}
+.status b{font-weight:600}
+.status .mono{font-family:var(--font-mono);font-size:13px}
+.direct h3{font-size:1.15rem;margin:0 0 14px}
+.chans{list-style:none;margin:0;padding:0;border:1px solid var(--rule);border-radius:14px;background:var(--sheet);overflow:hidden}
+.chans li{display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 16px;border-top:1px solid var(--rule)}
+.chans li:first-child{border-top:0}
+.chans .ic{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;background:var(--paper-2);color:var(--ink)}
+.chans .k{display:block;font:500 11px/1.3 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+:root[lang="he"] .chans .k{letter-spacing:0;font-size:12px}
+.ch-val{display:block;font-weight:500;font-size:15px;overflow-wrap:anywhere;unicode-bidi:plaintext;text-align:left}
+:root[dir="rtl"] .ch-val{text-align:right}
+.chans a.ch-val{text-decoration:none}
+.chans a.ch-val:hover{text-decoration:underline;text-underline-offset:3px}
+.copy{font:500 13px/1 var(--font-body);border:1px solid var(--rule);background:var(--paper);color:var(--ink);border-radius:7px;padding:8px 10px;cursor:pointer;white-space:nowrap}
+.copy:hover{border-color:var(--ink-3)}
+.copy .done{display:none}
+.copy.copied .idle{display:none}
+.copy.copied .done{display:inline;color:var(--ch2)}
+.open{color:var(--ink-3);display:grid;place-items:center;width:32px;height:32px;border-radius:7px;text-decoration:none}
+.open:hover{color:var(--ink);background:var(--paper-2)}
+
+/* ---------- footer ---------- */
+.foot{border-top:1px solid var(--rule);padding-block:28px}
+.foot-in{display:flex;justify-content:space-between;align-items:center;gap:10px 24px;flex-wrap:wrap;font:500 12.5px/1.6 var(--font-mono);color:var(--ink-3)}
+:root[lang="he"] .foot-in{font-family:var(--font-body);font-size:13.5px}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-form" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
+  <symbol id="i-table" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M3 15h18M9 4v16"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-mailok" viewBox="0 0 24 24"><path d="M21 11V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8"/><path d="m3 7 9 6 9-6"/><path d="m15.5 19 2 2 4-4"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.3 7.6L3.5 21l1.4-5A8.5 8.5 0 1 1 21 12z"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></symbol>
+  <symbol id="i-case" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9M12 3C9.5 5.6 8.2 8.6 8.2 12s1.3 6.4 3.8 9"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 1 1 12 0v5l2 2H4l2-2zM10 20a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+  <symbol id="i-shop" viewBox="0 0 24 24"><path d="M4 9h16l-1 11H5L4 9zM8 9V7a4 4 0 0 1 8 0v2"/></symbol>
+</svg>
+
+<a class="skip" href="#main"><span data-l="en">Skip to content</span><span data-l="he">דלגו לתוכן</span></a>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="#top" aria-label="Yahav Mor">
+      <span class="chip" aria-hidden="true"><i></i>YM</span>
+      <span class="brand-name"><span data-l="en">Yahav Mor</span><span data-l="he">יהב מור</span></span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#work"><span data-l="en">Work</span><span data-l="he">עבודות</span></a>
+      <a href="#automation"><span data-l="en">For businesses</span><span data-l="he">לעסקים</span></a>
+      <a href="#experience"><span data-l="en">Experience</span><span data-l="he">ניסיון</span></a>
+      <a href="#contact"><span data-l="en">Contact</span><span data-l="he">צור קשר</span></a>
+    </nav>
+    <div class="head-actions">
+      <button class="btn-lang" id="langBtn" type="button" data-aria-en="Switch to Hebrew" data-aria-he="Switch to English" aria-label="Switch language"><span data-l="en" lang="he">עברית</span><span data-l="he" lang="en">English</span></button>
+      <a class="btn btn-primary btn-sm" href="#contact"><span data-l="en">Let's talk</span><span data-l="he">בואו נדבר</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow"><span data-l="en">Full-Stack Developer · Automation Builder · Kibbutz Na'an, Israel</span><span data-l="he">מפתח Full Stack · בונה אוטומציות · קיבוץ נען</span></p>
+        <h1><span data-l="en">I make systems talk to each other.</span><span data-l="he">אני גורם למערכות לדבר אחת עם השנייה.</span></h1>
+        <p class="lede" data-l="en">Since 2023 I've been integrating electronic and communication systems at Elbit Systems. I also build web apps with React and Node.js, and Make automations that keep real businesses running every day.</p>
+        <p class="lede" data-l="he">מאז 2023 אני עושה אינטגרציה של מערכות אלקטרוניקה ותקשורת באלביט מערכות. במקביל אני בונה אפליקציות ווב ב-⁠React וב-⁠Node.js, ואוטומציות ב-⁠Make שמפעילות עסקים אמיתיים כל יום.</p>
+
+        <div class="paths">
+          <a class="path ch1" href="#work">
+            <span class="badge">CH1 · <span data-l="en">For recruiters</span><span data-l="he">למגייסים</span></span>
+            <strong><span data-l="en">Hiring a full-stack developer?</span><span data-l="he">מחפשים מפתח Full Stack?</span></strong>
+            <span class="go"><span data-l="en">See my work and experience</span><span data-l="he">לעבודות ולניסיון שלי</span><svg class="i flip"><use href="#i-arrow"/></svg></span>
+          </a>
+          <a class="path ch2" href="#automation">
+            <span class="badge">CH2 · <span data-l="en">For businesses</span><span data-l="he">לעסקים</span></span>
+            <strong><span data-l="en">Want every lead handled automatically?</span><span data-l="he">רוצים שכל פנייה תטופל אוטומטית?</span></strong>
+            <span class="go"><span data-l="en">How I automate businesses</span><span data-l="he">איך זה עובד אצלכם</span><svg class="i flip"><use href="#i-arrow"/></svg></span>
+          </a>
+        </div>
+
+        <div class="quick">
+          <a href="https://github.com/yahavmor" target="_blank" rel="noopener"><svg class="i"><use href="#i-code"/></svg>github.com/yahavmor</a>
+          <a href="#" data-need="cv" target="_blank" rel="noopener"><svg class="i"><use href="#i-doc"/></svg><span data-l="en">CV (PDF)</span><span data-l="he">קורות חיים (PDF)</span></a>
+          <a href="#" data-need="linkedin" target="_blank" rel="noopener"><svg class="i"><use href="#i-case"/></svg>LinkedIn</a>
+        </div>
+      </div>
+
+      <figure class="fig" aria-labelledby="figTitle" style="margin:0">
+        <figcaption class="fig-head">
+          <span class="cap"><span data-l="en">Fig. 1 · Live system</span><span data-l="he">איור 1 · מערכת חיה</span></span>
+          <span class="fig-title" id="figTitle"><span data-l="en">What happens when you press Send on this site</span><span data-l="he">מה קורה כשלוחצים "שליחה" בטופס באתר הזה</span></span>
+        </figcaption>
+        <div class="fig-body">
+          <ol class="chain" id="chain">
+            <li class="fill" aria-hidden="true"></li>
+            <li class="pulse" aria-hidden="true"></li>
+            <li class="step">
+              <span class="node"><svg class="i"><use href="#i-form"/></svg></span>
+              <span><span class="step-name"><span data-l="en">Contact form</span><span data-l="he">טופס יצירת קשר</span></span><span class="step-detail" style="display:block"><span data-l="en">Name, email and message</span><span data-l="he">שם, מייל והודעה</span></span></span>
+              <span class="step-idx">01</span>
+            </li>
+            <li class="step">
+              <span class="node"><svg class="i"><use href="#i-bolt"/></svg></span>
+              <span><span class="step-name"><span data-l="en">Make webhook</span><span data-l="he">Webhook ב-⁠Make</span></span><span class="step-detail" style="display:block"><span data-l="en">The scenario receives the data instantly</span><span data-l="he">התרחיש מקבל את הפרטים מיד</span></span></span>
+              <span class="step-idx">02</span>
+            </li>
+            <li class="step">
+              <span class="node"><svg class="i"><use href="#i-table"/></svg></span>
+              <span><span class="step-name">Google Sheets</span><span class="step-detail" style="display:block"><span data-l="en">A new row in my leads table</span><span data-l="he">שורה חדשה בטבלת הלידים שלי</span></span></span>
+              <span class="step-idx">03</span>
+            </li>
+            <li class="step">
+              <span class="node"><svg class="i"><use href="#i-mail"/></svg></span>
+              <span><span class="step-name"><span data-l="en">Gmail, to me</span><span data-l="he">Gmail, אליי</span></span><span class="step-detail" style="display:block"><span data-l="en">An alert with every detail</span><span data-l="he">התראה עם כל הפרטים</span></span></span>
+              <span class="step-idx">04</span>
+            </li>
+            <li class="step">
+              <span class="node"><svg class="i"><use href="#i-mailok"/></svg></span>
+              <span><span class="step-name"><span data-l="en">Gmail, to you</span><span data-l="he">Gmail, אליך</span></span><span class="step-detail" style="display:block"><span data-l="en">A confirmation in your language</span><span data-l="he">מייל אישור בשפה שלך</span></span></span>
+              <span class="step-idx">05</span>
+            </li>
+          </ol>
+        </div>
+        <div class="fig-foot">
+          <span class="live"><span data-l="en">Scenario active</span><span data-l="he">התרחיש פעיל</span></span>
+          <span class="fig-status" id="figStatus" aria-live="polite"><span data-l="en">About 5 s end to end</span><span data-l="he">כ-⁠5 שניות מקצה לקצה</span></span>
+        </div>
+      </figure>
+    </div>
+
+    <div class="specs">
+      <span class="cap"><span data-l="en">Table 1 · Key specifications</span><span data-l="he">טבלה 1 · מפרט עיקרי</span></span>
+      <dl class="spec-grid">
+        <div class="spec"><dt><span data-l="en">Open to</span><span data-l="he">פתוח ל</span></dt><dd><span data-l="en">Full-stack / web developer roles</span><span data-l="he">משרות פיתוח Full Stack / Web</span></dd></div>
+        <div class="spec"><dt><span data-l="en">Stack</span><span data-l="he">טכנולוגיות</span></dt><dd>React · Redux · Node.js · Express · MongoDB</dd></div>
+        <div class="spec"><dt><span data-l="en">Automation</span><span data-l="he">אוטומציה</span></dt><dd><span data-l="en">90+ Make scenarios built</span><span data-l="he">יותר מ-⁠90 תרחישי Make שבניתי</span></dd></div>
+        <div class="spec"><dt><span data-l="en">Currently</span><span data-l="he">כיום</span></dt><dd><span data-l="en">System Integrator, Elbit Systems</span><span data-l="he">System Integrator באלביט מערכות</span></dd></div>
+        <div class="spec"><dt><span data-l="en">Languages</span><span data-l="he">שפות</span></dt><dd><span data-l="en">Hebrew (native) · English (fluent)</span><span data-l="he">עברית (שפת אם) · אנגלית (רמה גבוהה)</span></dd></div>
+        <div class="spec"><dt><span data-l="en">Education</span><span data-l="he">השכלה</span></dt><dd><span data-l="en">Practical Engineer, Electronics (honors)</span><span data-l="he">הנדסאי אלקטרוניקה (בהצטיינות)</span></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WORK ===== -->
+<section class="block" id="work">
+  <div class="wrap">
+    <p class="sec-label"><span data-l="en">Selected work</span><span data-l="he">עבודות נבחרות</span></p>
+    <h2><span data-l="en">Built, shipped, and running.</span><span data-l="he">נבנה, עלה לאוויר, ועובד.</span></h2>
+    <p class="sec-lede" data-l="en">Systems that run today for real people, plus the code projects that show how I build.</p>
+    <p class="sec-lede" data-l="he">מערכות שרצות היום אצל אנשים אמיתיים, ופרויקטי קוד שמראים איך אני בונה.</p>
+
+    <article class="case">
+      <div class="case-main">
+        <p class="tag ch2"><span data-l="en">Case study · Automation and growth</span><span data-l="he">מקרה בוחן · אוטומציה וצמיחה</span></p>
+        <h3><span data-l="en">Ben Nahum · Digital Online</span><span data-l="he">בן נחום · Digital Online</span></h3>
+        <p class="case-sub" data-l="en">The full funnel behind an NLP coach's digital course: from a comment on Instagram to a paying customer, automated end to end.</p>
+        <p class="case-sub" data-l="he">המשפך המלא מאחורי הקורס הדיגיטלי של מאמן NLP: מתגובה באינסטגרם ועד לקוח משלם, אוטומטי מקצה לקצה.</p>
+        <p class="built-h"><span data-l="en">What I built</span><span data-l="he">מה בניתי</span></p>
+        <ul class="built" data-l="en">
+          <li>Instagram DM automations in ManyChat: keyword comments and story replies open a conversation, and the welcome flow runs a live A/B test.</li>
+          <li>A Discord community engine in Make: welcome bot, activity and referral roles, weekly challenges and a weekly report on where new members come from.</li>
+          <li>Payments through Cardcom: payment page, verification, buyer list and course-access email, with no manual step.</li>
+          <li>Abandoned-checkout follow-up, daily, weekly and monthly email reports, and an alert when the site goes 6 hours without visitors.</li>
+        </ul>
+        <ul class="built" data-l="he">
+          <li>אוטומציות DM באינסטגרם עם ManyChat: תגובה עם מילת מפתח או תגובה לסטורי פותחות שיחה, ותהליך הפתיחה מריץ בדיקת A/B חיה.</li>
+          <li>מנוע קהילה בדיסקורד ב-⁠Make: בוט קבלת פנים, רולים לפי פעילות ועל הבאת חברים, משימות שבועיות ודוח שבועי על מקורות ההצטרפות.</li>
+          <li>תשלומים דרך Cardcom: דף תשלום, אימות, רשימת רוכשים ומייל גישה לקורס, בלי אף צעד ידני.</li>
+          <li>מעקב אחרי נטישה בתשלום, דוחות יומיים, שבועיים וחודשיים במייל, והתראה כשעוברות 6 שעות בלי מבקרים באתר.</li>
+        </ul>
+        <ul class="tags"><li>Make</li><li>ManyChat</li><li>Discord</li><li>Cardcom</li><li>Google Sheets</li><li>WhatsApp Cloud API</li><li>Instagram API</li></ul>
+      </div>
+      <aside class="case-side">
+        <div class="stat">
+          <b>80%</b>
+          <span data-l="en">click-through on the community link in the welcome DM</span>
+          <span data-l="he">הקלקות על הקישור לקהילה בהודעת הפתיחה</span>
+        </div>
+        <div>
+          <p class="built-h"><span data-l="en">The funnel</span><span data-l="he">המשפך</span></p>
+          <ol class="flow">
+            <li><span class="pill"><span data-l="en">Instagram</span><span data-l="he">אינסטגרם</span></span></li>
+            <li><span class="pill"><span data-l="en">ManyChat DMs</span><span data-l="he">הודעות ManyChat</span></span></li>
+            <li><span class="pill"><span data-l="en">Discord · WhatsApp</span><span data-l="he">דיסקורד · וואטסאפ</span></span></li>
+            <li><span class="pill"><span data-l="en">Sales page</span><span data-l="he">דף מכירה</span></span></li>
+            <li><span class="pill"><span data-l="en">Cardcom checkout</span><span data-l="he">תשלום ב-⁠Cardcom</span></span></li>
+            <li><span class="pill"><span data-l="en">Email reports</span><span data-l="he">דוחות במייל</span></span></li>
+          </ol>
+          <p class="flow-cap"><span data-l="en">Every step is wired together in Make.</span><span data-l="he">כל השלבים מחוברים ב-⁠Make.</span></p>
+        </div>
+      </aside>
+    </article>
+
+    <div class="duo">
+      <article class="card">
+        <p class="tag ch2"><span data-l="en">Live demo · Automation for clinics</span><span data-l="he">דמו חי · אוטומציה לקליניקות</span></p>
+        <div class="viz" aria-hidden="true">
+          <div class="notif">
+            <span class="ic"><svg class="i"><use href="#i-bell"/></svg></span>
+            <span><strong><span data-l="en">New lead: Michal · Facial treatment</span><span data-l="he">ליד חדש: מיכל · טיפול פנים</span></strong><span><span data-l="en">Logged in Sheets · confirmation sent in about 5 s</span><span data-l="he">נרשם בטבלה · מייל אישור נשלח תוך כ-⁠5 שניות</span></span></span>
+          </div>
+          <span class="viz-cap"><span data-l="en">From the demo</span><span data-l="he">מתוך הדמו</span></span>
+        </div>
+        <h3><span data-l="en">Clinic lead system</span><span data-l="he">מערכת לידים לקליניקה</span></h3>
+        <p data-l="en">A website form that drops every inquiry into Google Sheets, alerts the owner by email and sends the patient a branded confirmation within seconds. It's the core offer of Yahav Automations.</p>
+        <p data-l="he">טופס באתר שמכניס כל פנייה לגוגל שיטס, שולח התראה לבעלת העסק במייל ושולח למטופלת מייל אישור ממותג תוך שניות. זה השירות המרכזי של יהב אוטומציות.</p>
+        <ul class="tags"><li>Make</li><li>Google Sheets</li><li>Gmail</li><li>Netlify</li></ul>
+        <div class="link-row">
+          <a class="btn btn-ghost btn-sm" data-l="en" href="https://glow-clinic-demo.netlify.app" target="_blank" rel="noopener">Try the demo<svg class="i"><use href="#i-ext"/></svg></a>
+          <a class="btn btn-ghost btn-sm" data-l="en" href="https://or-clinic-demo.netlify.app" target="_blank" rel="noopener">Hebrew version<svg class="i"><use href="#i-ext"/></svg></a>
+          <a class="btn btn-ghost btn-sm" data-l="he" href="https://or-clinic-demo.netlify.app" target="_blank" rel="noopener">לדמו בעברית<svg class="i"><use href="#i-ext"/></svg></a>
+          <a class="btn btn-ghost btn-sm" data-l="he" href="https://glow-clinic-demo.netlify.app" target="_blank" rel="noopener">English demo<svg class="i"><use href="#i-ext"/></svg></a>
+        </div>
+      </article>
+
+      <article class="card">
+        <p class="tag"><span data-l="en">Product · Etsy shop</span><span data-l="he">מוצר · חנות Etsy</span></p>
+        <div class="viz" aria-hidden="true">
+          <div class="sheet-viz">
+            <i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i>
+            <i></i><i></i><i></i><i></i><i class="bar" style="--w:72%"></i>
+            <i></i><i></i><i></i><i></i><i class="bar" style="--w:48%"></i>
+            <i class="hl"></i><i class="hl"></i><i class="hl"></i><i class="hl"></i><i class="bar" style="--w:86%"></i>
+            <i></i><i></i><i></i><i></i><i class="bar" style="--w:35%"></i>
+          </div>
+        </div>
+        <h3>SellerSheetsCo</h3>
+        <p data-l="en">My Etsy shop of Google Sheets templates that help online sellers run the numbers of their business. I design the products, the listings and the shop's Pinterest presence.</p>
+        <p data-l="he">החנות שלי ב-⁠Etsy: תבניות Google Sheets שעוזרות למוכרים אונליין לנהל את המספרים של העסק. אני מעצב את המוצרים, את דפי המוצר ואת הנוכחות של החנות ב-⁠Pinterest.</p>
+        <ul class="tags"><li>Google Sheets</li><li>Etsy</li><li>Pinterest</li></ul>
+        <div class="link-row">
+          <a class="btn btn-ghost btn-sm" href="https://www.etsy.com/shop/SellerSheetsCo" target="_blank" rel="noopener"><span data-l="en">Visit the shop</span><span data-l="he">לחנות</span><svg class="i"><use href="#i-ext"/></svg></a>
+        </div>
+      </article>
+    </div>
+
+    <div class="sub-h">
+      <h3><span data-l="en">Code projects</span><span data-l="he">פרויקטי קוד</span></h3>
+      <p><span data-l="en">JavaScript end to end: React on the front, Node.js and MongoDB behind it.</span><span data-l="he">JavaScript מקצה לקצה: React בצד הלקוח, Node.js ו-⁠MongoDB מאחור.</span></p>
+    </div>
+    <div class="trio">
+      <article class="mini">
+        <div class="mini-top"><span class="badge ch1">CH1 · Full stack</span><svg class="i"><use href="#i-code"/></svg></div>
+        <h4>Full-Stack Task Manager</h4>
+        <p data-l="en">A full CRUD app with JWT authentication and protected routes, a responsive UI with state management, deployed to the cloud.</p>
+        <p data-l="he">אפליקציית CRUD מלאה עם אימות JWT ונתיבים מוגנים, ממשק רספונסיבי עם ניהול state, ופריסה לענן.</p>
+        <ul class="tags"><li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li></ul>
+        <a class="txt-link" href="https://github.com/yahavmor" target="_blank" rel="noopener"><span data-l="en">Code on GitHub</span><span data-l="he">הקוד ב-⁠GitHub</span><svg class="i"><use href="#i-ext"/></svg></a>
+      </article>
+      <article class="mini">
+        <div class="mini-top"><span class="badge ch1">CH1 · Front end</span><svg class="i"><use href="#i-code"/></svg></div>
+        <h4>Weather Dashboard</h4>
+        <p data-l="en">Real-time weather data from an external API in a responsive dashboard, built from clean, reusable components.</p>
+        <p data-l="he">נתוני מזג אוויר בזמן אמת מ-⁠API חיצוני, בדשבורד רספונסיבי שבנוי מקומפוננטות נקיות ומודולריות.</p>
+        <ul class="tags"><li>React</li><li>REST API</li></ul>
+        <a class="txt-link" href="https://github.com/yahavmor" target="_blank" rel="noopener"><span data-l="en">Code on GitHub</span><span data-l="he">הקוד ב-⁠GitHub</span><svg class="i"><use href="#i-ext"/></svg></a>
+      </article>
+      <article class="mini">
+        <div class="mini-top"><span class="badge ch1">CH1 · Back end</span><svg class="i"><use href="#i-code"/></svg></div>
+        <h4>User Management API</h4>
+        <p data-l="en">A REST API with complete CRUD operations, input validation and authorization.</p>
+        <p data-l="he">REST API עם פעולות CRUD מלאות, ולידציה של קלט והרשאות.</p>
+        <ul class="tags"><li>Node.js</li><li>Express</li><li>MongoDB</li></ul>
+        <a class="txt-link" href="https://github.com/yahavmor" target="_blank" rel="noopener"><span data-l="en">Code on GitHub</span><span data-l="he">הקוד ב-⁠GitHub</span><svg class="i"><use href="#i-ext"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AUTOMATION ===== -->
+<section class="block band" id="automation">
+  <div class="wrap">
+    <div class="auto-grid">
+      <div>
+        <p class="sec-label"><span data-l="en">For businesses</span><span data-l="he">לעסקים</span></p>
+        <h2><span data-l="en">No inquiry from your website gets lost again.</span><span data-l="he">אף פנייה מהאתר לא הולכת לאיבוד יותר.</span></h2>
+        <p class="sec-lede" data-l="en">Every inquiry you don't answer quickly goes to a competitor. I connect your website form to a system that logs it, alerts you and answers the customer within seconds. It runs on your own Google and Make accounts, for a one-time fixed price with no monthly fee.</p>
+        <p class="sec-lede" data-l="he">כל פנייה שלא חוזרים אליה מהר הולכת למתחרה. אני מחבר את הטופס באתר שלכם למערכת שמתעדת כל פנייה, מתריעה לכם ועונה ללקוח תוך שניות. הכל רץ על חשבונות Google ו-⁠Make שלכם, במחיר חד פעמי וקבוע, בלי מנוי חודשי.</p>
+        <p class="fit"><b><span data-l="en">A good fit for:</span><span data-l="he">מתאים במיוחד ל:</span></b> <span data-l="en">clinics, accountants, law firms, fitness studios and real estate offices.</span><span data-l="he">קליניקות, רואי חשבון, עורכי דין, סטודיו וכושר ומשרדי תיווך.</span></p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://yahav-automations.netlify.app" target="_blank" rel="noopener"><span data-l="en">See packages</span><span data-l="he">לחבילות ולפרטים</span><svg class="i"><use href="#i-ext"/></svg></a>
+          <a class="btn btn-ghost" data-l="en" href="https://glow-clinic-demo.netlify.app" target="_blank" rel="noopener">Try the live demo<svg class="i"><use href="#i-ext"/></svg></a>
+          <a class="btn btn-ghost" data-l="he" href="https://or-clinic-demo.netlify.app" target="_blank" rel="noopener">לדמו החי<svg class="i"><use href="#i-ext"/></svg></a>
+        </div>
+      </div>
+
+      <div>
+        <p class="mini-h"><span data-l="en">How it works</span><span data-l="he">איך זה עובד</span></p>
+        <ol class="steps">
+          <li><span class="n">1</span><div><h4><span data-l="en">A short intro call</span><span data-l="he">שיחת היכרות קצרה</span></h4><p data-l="en">We look at how inquiries reach you today.</p><p data-l="he">בודקים איך פניות מגיעות אליכם היום.</p></div></li>
+          <li><span class="n">2</span><div><h4><span data-l="en">A fixed quote</span><span data-l="he">הצעת מחיר קבועה</span></h4><p data-l="en">One price, agreed up front.</p><p data-l="he">מחיר אחד, סגור מראש.</p></div></li>
+          <li><span class="n">3</span><div><h4><span data-l="en">Build and test</span><span data-l="he">הקמה ובדיקה</span></h4><p data-l="en">I set everything up on your accounts and test every path.</p><p data-l="he">אני מקים הכל על החשבונות שלכם ובודק כל מסלול.</p></div></li>
+          <li><span class="n">4</span><div><h4><span data-l="en">Handoff</span><span data-l="he">הדרכה</span></h4><p data-l="en">A short walkthrough, so you know exactly what runs where.</p><p data-l="he">הדרכה קצרה, כדי שתדעו בדיוק מה רץ ואיפה.</p></div></li>
+        </ol>
+        <ul class="facts">
+          <li><span data-l="en">5 s to the customer's confirmation</span><span data-l="he">5 שניות עד מייל האישור ללקוח</span></li>
+          <li><span data-l="en">0 leads forgotten in the inbox</span><span data-l="he">0 פניות שנשכחות במייל</span></li>
+          <li><span data-l="en">48 h basic setup</span><span data-l="he">48 שעות להקמה בסיסית</span></li>
+          <li><span data-l="en">Running 24/7</span><span data-l="he">פעולה רציפה 24/7</span></li>
+        </ul>
+      </div>
+    </div>
+      <div class="gets">
+          <div class="get">
+            <span class="ic"><svg class="i"><use href="#i-table"/></svg></span>
+            <h4><span data-l="en">Every lead in one table</span><span data-l="he">כל הלידים בטבלה אחת</span></h4>
+            <p data-l="en">Each inquiry lands in Google Sheets with the date, the details and a status.</p>
+            <p data-l="he">כל פנייה נכנסת לגוגל שיטס עם תאריך, פרטים וסטטוס.</p>
+          </div>
+          <div class="get">
+            <span class="ic"><svg class="i"><use href="#i-bell"/></svg></span>
+            <h4><span data-l="en">Instant alert</span><span data-l="he">התראה מיידית</span></h4>
+            <p data-l="en">You get an email the moment someone fills in the form.</p>
+            <p data-l="he">מייל אליכם ברגע שמישהו ממלא את הטופס.</p>
+          </div>
+          <div class="get">
+            <span class="ic"><svg class="i"><use href="#i-mailok"/></svg></span>
+            <h4><span data-l="en">A branded reply in seconds</span><span data-l="he">מענה ממותג תוך שניות</span></h4>
+            <p data-l="en">The customer gets a confirmation in your name before they close the tab.</p>
+            <p data-l="he">הלקוח מקבל אישור בשם העסק עוד לפני שסגר את הלשונית.</p>
+          </div>
+          <div class="get">
+            <span class="ic"><svg class="i"><use href="#i-link"/></svg></span>
+            <h4><span data-l="en">Reminders and connections</span><span data-l="he">תזכורות וחיבורים</span></h4>
+            <p data-l="en">Automatic follow-ups, plus calendar or CRM connections when you need more.</p>
+            <p data-l="he">מעקב אוטומטי, וחיבור ליומן או ל-⁠CRM כשצריך יותר.</p>
+          </div>
+        </div>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section class="block" id="experience">
+  <div class="wrap">
+    <p class="sec-label"><span data-l="en">Experience</span><span data-l="he">ניסיון</span></p>
+    <h2><span data-l="en">From radio signals to web apps.</span><span data-l="he">מאותות רדיו לאפליקציות ווב.</span></h2>
+    <p class="sec-lede" data-l="en">Every role taught me the same skill from a different angle: making separate systems work as one.</p>
+    <p class="sec-lede" data-l="he">כל תפקיד לימד אותי את אותה מיומנות מזווית אחרת: לגרום למערכות נפרדות לעבוד כמו מערכת אחת.</p>
+    <div class="exp-grid">
+      <div>
+        <ol class="tl">
+          <li>
+            <div class="when"><span class="dot ch2"></span>2026 - <span data-l="en">now</span><span data-l="he">היום</span></div>
+            <div>
+              <h4><span data-l="en">Founder, Yahav Automations</span><span data-l="he">מייסד, יהב אוטומציות</span></h4>
+              <p class="org"><span data-l="en">Freelance · Israel</span><span data-l="he">עצמאי · ישראל</span></p>
+              <p data-l="en">Make automations for small businesses in Israel: lead capture, alerts, confirmation emails and reports.</p>
+              <p data-l="he">אוטומציות Make לעסקים קטנים בישראל: קליטת לידים, התראות, מיילי אישור ודוחות.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when"><span class="dot ch1"></span>2025 - 2026</div>
+            <div>
+              <h4><span data-l="en">Full-Stack Development</span><span data-l="he">פיתוח Full Stack</span></h4>
+              <p class="org">Coding Academy</p>
+              <p data-l="en">Intensive program, January 2025 to February 2026: React, Redux, Node.js, Express and MongoDB. Certified Full-Stack Developer.</p>
+              <p data-l="he">תוכנית אינטנסיבית, ינואר 2025 עד פברואר 2026: React, Redux, Node.js, Express ו-⁠MongoDB. בוגר עם תעודת Full Stack Developer.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when"><span class="dot"></span>2023 - <span data-l="en">now</span><span data-l="he">היום</span></div>
+            <div>
+              <h4>System Integrator</h4>
+              <p class="org"><span data-l="en">Elbit Systems</span><span data-l="he">אלביט מערכות</span></p>
+              <ul data-l="en">
+                <li>Integrate complex electronic and communication systems</li>
+                <li>Root cause analysis and technical solutions</li>
+                <li>Work across software, hardware and RF teams</li>
+                <li>Lead deployments and write technical documentation</li>
+              </ul>
+              <ul data-l="he">
+                <li>אינטגרציה של מערכות אלקטרוניקה ותקשורת מורכבות</li>
+                <li>ניתוח שורש תקלות ופתרונות טכניים</li>
+                <li>עבודה משותפת עם צוותי תוכנה, חומרה ו-⁠RF</li>
+                <li>הובלת פריסות וכתיבת תיעוד טכני</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="when"><span class="dot"></span>2020 - 2023</div>
+            <div>
+              <h4><span data-l="en">Spectrum Analyst</span><span data-l="he">אנליסט ספקטרום</span></h4>
+              <p class="org"><span data-l="en">IDF, Unit 513</span><span data-l="he">צה״ל, יחידה 513</span></p>
+              <ul data-l="en">
+                <li>RF signal analysis and interference resolution</li>
+                <li>Led field teams in mission-critical operations</li>
+                <li>Technical reports and coordination with stakeholders</li>
+              </ul>
+              <ul data-l="he">
+                <li>ניתוח אותות RF ופתרון הפרעות</li>
+                <li>הובלת צוותי שטח במשימות קריטיות</li>
+                <li>דוחות טכניים ותיאום מול גורמים שונים</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="when"><span class="dot"></span>2018 - 2020</div>
+            <div>
+              <h4><span data-l="en">Practical Engineer, Electronics and Computers</span><span data-l="he">הנדסאי אלקטרוניקה ומחשבים</span></h4>
+              <p class="org"><span data-l="en">ORT Rehovot · with honors</span><span data-l="he">אורט רחובות · בהצטיינות</span></p>
+            </div>
+          </li>
+        </ol>
+        <div class="legend">
+          <span><i class="ch1"></i><span data-l="en">Developer</span><span data-l="he">פיתוח</span></span>
+          <span><i class="ch2"></i><span data-l="en">Automation</span><span data-l="he">אוטומציה</span></span>
+          <span><i></i><span data-l="en">Engineering</span><span data-l="he">הנדסה</span></span>
+        </div>
+      </div>
+
+      <table class="skills">
+        <caption><span class="cap"><span data-l="en">Table 2 · Skills</span><span data-l="he">טבלה 2 · מיומנויות</span></span></caption>
+        <tbody>
+          <tr><th scope="row"><span data-l="en">Frontend</span><span data-l="he">פרונטאנד</span></th><td>HTML5, CSS3, JavaScript (ES6+), React, Hooks, Redux / Context, jQuery</td></tr>
+          <tr><th scope="row"><span data-l="en">Backend</span><span data-l="he">בקאנד</span></th><td>Node.js, Express, REST APIs, JWT auth, WebSockets</td></tr>
+          <tr><th scope="row"><span data-l="en">Databases</span><span data-l="he">מסדי נתונים</span></th><td>MongoDB, Mongoose, MySQL</td></tr>
+          <tr><th scope="row"><span data-l="en">Automation</span><span data-l="he">אוטומציה</span></th><td>Make, webhooks, Google Sheets, Gmail, WhatsApp Cloud API, Discord, ManyChat</td></tr>
+          <tr><th scope="row"><span data-l="en">Tools</span><span data-l="he">כלים</span></th><td>Git / GitHub, Netlify, Render, Heroku, CLI</td></tr>
+          <tr><th scope="row"><span data-l="en">Engineering</span><span data-l="he">הנדסה</span></th><td><span data-l="en">Systems integration, RF analysis, root cause analysis, technical documentation</span><span data-l="he">אינטגרציית מערכות, ניתוח RF, ניתוח שורש תקלות, תיעוד טכני</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="block band" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <p class="sec-label"><span data-l="en">Contact</span><span data-l="he">צור קשר</span></p>
+        <h2><span data-l="en">Let's talk.</span><span data-l="he">בואו נדבר.</span></h2>
+        <p class="sec-lede" data-l="en">A role, a project or a quick question. Send it here and a confirmation email reaches you within seconds. That's Fig. 1 at work.</p>
+        <p class="sec-lede" data-l="he">משרה, פרויקט או סתם שאלה. שלחו כאן, ותוך שניות יגיע אליכם מייל אישור. זה איור 1 בפעולה.</p>
+
+        <form class="form" id="contactForm" novalidate>
+          <div class="row2">
+            <div class="field">
+              <label for="f-name"><span data-l="en">Full name</span><span data-l="he">שם מלא</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="80" data-ph-en="Your name" data-ph-he="השם שלך">
+            </div>
+            <div class="field">
+              <label for="f-email"><span data-l="en">Email</span><span data-l="he">מייל</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required maxlength="120" dir="ltr" data-ph-en="you@company.com" data-ph-he="you@company.com">
+            </div>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label for="f-phone"><span data-l="en">Phone <span class="opt">(optional)</span></span><span data-l="he">טלפון <span class="opt">(לא חובה)</span></span></label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" maxlength="30" dir="ltr" data-ph-en="+972 50 000 0000" data-ph-he="050-0000000">
+            </div>
+            <div class="field">
+              <label for="f-company"><span data-l="en">Company or business <span class="opt">(optional)</span></span><span data-l="he">חברה או עסק <span class="opt">(לא חובה)</span></span></label>
+              <input id="f-company" name="company" type="text" autocomplete="organization" maxlength="80" data-ph-en="Where you work" data-ph-he="שם החברה או העסק">
+            </div>
+          </div>
+          <fieldset class="field">
+            <legend><span data-l="en">What's it about?</span><span data-l="he">על מה מדובר?</span></legend>
+            <div class="seg">
+              <input type="radio" id="t-job" name="topic" value="job" checked><label for="t-job"><span data-l="en">A developer role</span><span data-l="he">משרת פיתוח</span></label>
+              <input type="radio" id="t-auto" name="topic" value="automation"><label for="t-auto"><span data-l="en">An automation project</span><span data-l="he">פרויקט אוטומציה</span></label>
+              <input type="radio" id="t-other" name="topic" value="other"><label for="t-other"><span data-l="en">Something else</span><span data-l="he">משהו אחר</span></label>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label for="f-msg"><span data-l="en">Message</span><span data-l="he">הודעה</span></label>
+            <textarea id="f-msg" name="message" required maxlength="2000" data-ph-en="What are you looking for?" data-ph-he="במה אפשר לעזור?"></textarea>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="f-website">Website</label>
+            <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="runbar" id="runbar" aria-hidden="true">
+            <div><i></i><span><span data-l="en">Form</span><span data-l="he">טופס</span></span></div>
+            <div><i></i><span>Webhook</span></div>
+            <div><i></i><span>Sheets</span></div>
+            <div><i></i><span><span data-l="en">Alert</span><span data-l="he">התראה</span></span></div>
+            <div><i></i><span><span data-l="en">Reply</span><span data-l="he">אישור</span></span></div>
+          </div>
+          <div class="form-foot">
+            <p class="form-note"><span data-l="en">Your details reach only me and are never shared.</span><span data-l="he">הפרטים מגיעים רק אליי ולא מועברים לאף אחד.</span></p>
+            <button class="btn btn-primary" id="sendBtn" type="submit">
+              <span class="lbl-idle"><span data-l="en">Send</span><span data-l="he">שליחה</span></span>
+              <span class="lbl-busy" hidden><span data-l="en">Sending...</span><span data-l="he">שולח...</span></span>
+            </button>
+          </div>
+          <div class="status" id="formStatus" role="status" aria-live="polite" hidden></div>
+        </form>
+      </div>
+
+      <div class="direct">
+        <h3><span data-l="en">Or reach me directly</span><span data-l="he">או ישירות</span></h3>
+        <ul class="chans">
+          <li>
+            <span class="ic"><svg class="i"><use href="#i-mail"/></svg></span>
+            <span><span class="k"><span data-l="en">Email</span><span data-l="he">מייל</span></span><a class="ch-val" href="mailto:yahavmor77@gmail.com">yahavmor77@gmail.com</a></span>
+            <button class="copy" type="button" data-copy="yahavmor77@gmail.com"><span class="idle"><span data-l="en">Copy</span><span data-l="he">העתקה</span></span><span class="done"><span data-l="en">Copied</span><span data-l="he">הועתק</span></span></button>
+          </li>
+          <li>
+            <span class="ic"><svg class="i"><use href="#i-chat"/></svg></span>
+            <span><span class="k">WhatsApp</span><span class="ch-val">054-344-1067</span></span>
+            <a class="open" data-l="en" href="https://wa.me/972543441067?text=Hi%20Yahav%2C%20I%20found%20you%20through%20your%20website" target="_blank" rel="noopener" aria-label="Open WhatsApp"><svg class="i flip"><use href="#i-arrow"/></svg></a>
+            <a class="open" data-l="he" href="https://wa.me/972543441067?text=%D7%94%D7%99%D7%99%20%D7%99%D7%94%D7%91%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%D7%9A" target="_blank" rel="noopener" aria-label="פתיחת וואטסאפ"><svg class="i flip"><use href="#i-arrow"/></svg></a>
+          </li>
+          <li>
+            <span class="ic"><svg class="i"><use href="#i-code"/></svg></span>
+            <span><span class="k">GitHub</span><a class="ch-val" href="https://github.com/yahavmor" target="_blank" rel="noopener">github.com/yahavmor</a></span>
+            <a class="open" href="https://github.com/yahavmor" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i flip"><use href="#i-arrow"/></svg></a>
+          </li>
+          <li data-need="linkedin">
+            <span class="ic"><svg class="i"><use href="#i-case"/></svg></span>
+            <span><span class="k">LinkedIn</span><a class="ch-val" data-href href="#" target="_blank" rel="noopener"><span data-l="en">My profile</span><span data-l="he">הפרופיל שלי</span></a></span>
+            <a class="open" data-href href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i flip"><use href="#i-arrow"/></svg></a>
+          </li>
+          <li>
+            <span class="ic"><svg class="i"><use href="#i-globe"/></svg></span>
+            <span><span class="k"><span data-l="en">Automation services</span><span data-l="he">אתר האוטומציות</span></span><a class="ch-val" href="https://yahav-automations.netlify.app" target="_blank" rel="noopener">yahav-automations.netlify.app</a></span>
+            <a class="open" href="https://yahav-automations.netlify.app" target="_blank" rel="noopener" aria-label="Yahav Automations"><svg class="i flip"><use href="#i-arrow"/></svg></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span><span data-l="en">© 2026 Yahav Mor · Kibbutz Na'an, Israel</span><span data-l="he">© 2026 יהב מור · קיבוץ נען</span></span>
+    <span><span data-l="en">The contact form runs on a live Make scenario</span><span data-l="he">טופס יצירת הקשר רץ על תרחיש Make חי</span></span>
+    <span dir="ltr">YM-01 · REV 2026.10</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var CONFIG = {
+    hook: "https://hook.eu1.make.com/i8hlyly2spoe1etf9ubdmi05pmrq9s2e",
+    linkedin: "",
+    cv: "cv.pdf",
+    setTitle: true
+  };
+  var root = document.documentElement;
+  var reduce = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  var TITLES = { en: "Yahav Mor · Full-Stack Developer & Automation Builder", he: "יהב מור · מפתח Full Stack ואוטומציות" };
+  function lang(){ return root.lang === "he" ? "he" : "en"; }
+  function $(s){ return document.querySelector(s); }
+  function $$(s, el){ return Array.prototype.slice.call((el || document).querySelectorAll(s)); }
+
+  /* Links that depend on settings (CV, LinkedIn) stay hidden until a value exists */
+  $$("[data-need]").forEach(function(el){
+    var v = CONFIG[el.getAttribute("data-need")];
+    if (!v) { el.hidden = true; return; }
+    if (el.tagName === "A") el.href = v;
+    $$("a[data-href]", el).forEach(function(a){ a.href = v; });
+  });
+
+  /* ---------- Fig. 1 ---------- */
+  var chain = $("#chain");
+  var steps = $$(".step", chain);
+  var fill = chain.querySelector(".fill");
+  var pulse = chain.querySelector(".pulse");
+  var figStatus = $("#figStatus");
+  var bars = $$("#runbar > div");
+  var at = -1, timers = [];
+
+  function center(i){ var s = steps[i], n = s.querySelector(".node"); return s.offsetTop + n.offsetTop + n.offsetHeight / 2; }
+  function syncChain(){
+    if (at < 0) { fill.style.height = "0px"; return; }
+    var y0 = center(0), y = center(at);
+    fill.style.top = y0 + "px";
+    fill.style.height = (y - y0) + "px";
+    pulse.style.top = (y - 5) + "px";
+  }
+  function lightTo(i, showPulse, live){
+    at = i;
+    steps.forEach(function(s, k){ s.classList.toggle("lit", k <= i); });
+    bars.forEach(function(b, k){ b.classList.toggle("on", !!live && k <= i); });
+    pulse.style.opacity = showPulse && i >= 0 ? "1" : "0";
+    syncChain();
+  }
+  function clearTimers(){ timers.forEach(clearTimeout); timers = []; }
+  function later(fn, ms){ timers.push(setTimeout(fn, ms)); }
+  function bilingual(el, en, he, html){
+    el.innerHTML = '<span data-l="en"></span><span data-l="he"></span>';
+    el.children[0][html ? "innerHTML" : "textContent"] = en;
+    el.children[1][html ? "innerHTML" : "textContent"] = he;
+  }
+  function figSays(en, he){ bilingual(figStatus, en, he, false); }
+
+  function sampleRun(){
+    clearTimers();
+    var done = function(){ figSays("Sample run · about 5 s end to end", "הדגמה · כ-⁠5 שניות מקצה לקצה"); };
+    if (reduce) { lightTo(steps.length - 1, false); done(); return; }
+    lightTo(-1, false);
+    steps.forEach(function(_, k){ later(function(){ lightTo(k, true); }, 450 + k * 620); });
+    later(function(){ pulse.style.opacity = "0"; done(); }, 450 + steps.length * 620);
+  }
+
+  var ran = false;
+  function runOnce(){ if (!ran) { ran = true; sampleRun(); } }
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) { runOnce(); io.disconnect(); } });
+    }, { threshold: 0.45 });
+    io.observe(chain);
+  } else { runOnce(); }
+  window.addEventListener("resize", function(){ requestAnimationFrame(syncChain); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncChain);
+
+  /* ---------- language ---------- */
+  function applyLang(l, save){
+    root.lang = l;
+    root.dir = l === "he" ? "rtl" : "ltr";
+    $$("[data-ph-en]").forEach(function(el){ el.placeholder = el.getAttribute("data-ph-" + l) || ""; });
+    $$("[data-aria-en]").forEach(function(el){ el.setAttribute("aria-label", el.getAttribute("data-aria-" + l) || ""); });
+    if (CONFIG.setTitle) document.title = TITLES[l];
+    if (save) { try { localStorage.setItem("ym-lang", l); } catch (e) {} }
+    requestAnimationFrame(syncChain);
+  }
+  $("#langBtn").addEventListener("click", function(){ applyLang(lang() === "he" ? "en" : "he", true); });
+  window.addEventListener("hashchange", function(){
+    var h = (location.hash || "").slice(1).toLowerCase();
+    if (h === "he" || h === "en") applyLang(h, true);
+  });
+  applyLang(lang(), false);
+
+  /* ---------- contact form: runs Fig. 1 for real ---------- */
+  var form = $("#contactForm"), btn = $("#sendBtn"), statusEl = $("#formStatus");
+  function setStatus(kind, en, he){ statusEl.hidden = false; statusEl.className = "status " + kind; bilingual(statusEl, en, he, true); }
+  function busy(on){ btn.disabled = on; btn.querySelector(".lbl-idle").hidden = on; btn.querySelector(".lbl-busy").hidden = !on; }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    var fd = new FormData(form);
+    if (String(fd.get("website") || "").trim()) return;
+    var body = new URLSearchParams();
+    ["name", "email", "phone", "company", "topic", "message"].forEach(function(k){ body.append(k, String(fd.get(k) || "").trim()); });
+    body.append("lang", lang());
+    body.append("page", location.href.split("#")[0]);
+
+    clearTimers(); busy(true);
+    setStatus("wait", "Running Fig. 1...", "מריץ את איור 1...");
+    lightTo(0, true, true);
+    later(function(){ lightTo(1, true, true); }, 350);
+    later(function(){ lightTo(2, true, true); }, 1100);
+
+    var t0 = performance.now();
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var killer = setTimeout(function(){ if (ctrl) ctrl.abort(); }, 25000);
+    fetch(CONFIG.hook, { method: "POST", body: body, signal: ctrl ? ctrl.signal : undefined })
+      .then(function(r){ if (!r.ok) throw new Error("HTTP " + r.status); })
+      .then(function(){
+        clearTimeout(killer); clearTimers();
+        var s = ((performance.now() - t0) / 1000).toFixed(1);
+        lightTo(3, true, true);
+        later(function(){ lightTo(4, false, true); figSays("Live run · response in " + s + " s", "ריצה אמיתית · תגובה תוך " + s + " שנ׳"); }, 450);
+        setStatus("ok",
+          "<b>Sent.</b> Your message reached me, and a confirmation email is on its way to you. <span class=\"mono\">(" + s + " s)</span>",
+          "<b>נשלח.</b> ההודעה הגיעה אליי, ומייל אישור כבר בדרך אליך. <span class=\"mono\">(" + s + " שנ׳)</span>");
+        form.reset(); busy(false);
+      })
+      .catch(function(){
+        clearTimeout(killer); clearTimers();
+        lightTo(-1, false);
+        figSays("About 5 s end to end", "כ-⁠5 שניות מקצה לקצה");
+        setStatus("err",
+          "The message didn't go through from here. Email me at <b>yahavmor77@gmail.com</b> or send a WhatsApp to <b>054-344-1067</b>.",
+          "ההודעה לא נשלחה מכאן. אפשר לכתוב לי ל-⁠<b>yahavmor77@gmail.com</b> או לשלוח וואטסאפ ל-⁠<b>054-344-1067</b>.");
+        busy(false);
+      });
+  });
+
+  /* ---------- copy buttons ---------- */
+  $$("[data-copy]").forEach(function(b){
+    b.addEventListener("click", function(){
+      var text = b.getAttribute("data-copy");
+      function ok(){ b.classList.add("copied"); setTimeout(function(){ b.classList.remove("copied"); }, 1800); }
+      function selectIt(){
+        var v = b.parentElement.querySelector(".ch-val");
+        if (!v) return;
+        var r = document.createRange(); r.selectNodeContents(v);
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      }
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(ok, selectIt);
+        else selectIt();
+      } catch (err) { selectIt(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>

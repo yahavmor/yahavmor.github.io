@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Yahav Mor - CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Secular+One&display=block">
+<style>
+@page{size:A4;margin:0}
+:root{
+  --paper:#FFFFFF; --panel:#F3F5F8; --ink:#0F1B33; --ink-2:#3E4A63; --ink-3:#5F6B83; --rule:#D6DCE6;
+  --ch1:#9A6100; --ch2:#0B746F; --ch2-tint:#DCF2EF;
+  --display:"Secular One","IBM Plex Sans",sans-serif;
+  --body:"IBM Plex Sans",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--body);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;padding:12mm 13mm 10mm;display:grid;grid-template-rows:auto 1fr auto;gap:0;overflow:hidden}
+header{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:7mm;align-items:center;padding-bottom:5mm;border-bottom:1px solid var(--rule)}
+.who{display:flex;align-items:center;gap:4.5mm}
+.chip{position:relative;display:grid;place-items:center;width:13mm;height:10mm;border:1.4px solid var(--ink);border-radius:1.4mm;font:500 9pt/1 var(--mono);letter-spacing:.04em}
+.chip::before,.chip::after{content:"";position:absolute;top:1.6mm;bottom:1.6mm;width:1.6mm;background:repeating-linear-gradient(to bottom,var(--ink) 0 .7mm,transparent .7mm 1.7mm)}
+.chip::before{left:-2.1mm}.chip::after{right:-2.1mm}
+.chip i{position:absolute;top:1mm;left:1mm;width:1.2mm;height:1.2mm;border-radius:50%;background:var(--ink)}
+h1{font-family:var(--display);font-weight:400;font-size:27pt;line-height:1;margin:0}
+.role{margin:1.6mm 0 0;font-size:10.5pt;color:var(--ink-2);font-weight:500}
+.contact{list-style:none;margin:0;padding:0;font:400 8.2pt/1.6 var(--mono);color:var(--ink-2);text-align:right}
+.contact b{font-weight:500;color:var(--ink)}
+.qr{display:grid;justify-items:center;gap:1mm}
+.qr svg{width:19mm;height:19mm;display:block}
+.qr span{font:500 6.6pt/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.body{display:grid;grid-template-columns:minmax(0,1fr) 57mm;gap:8mm;padding-top:5.5mm;min-height:0}
+h2{display:flex;align-items:center;gap:2.5mm;font:500 7.6pt/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:0 0 3mm}
+h2::after{content:"";flex:1;height:1px;background:var(--rule)}
+section{margin-bottom:4.3mm}
+p{margin:0}
+.summary{font-size:9.4pt;line-height:1.48;color:var(--ink-2)}
+.job{margin-bottom:3mm}
+.job:last-child{margin-bottom:0}
+.job-h{display:flex;justify-content:space-between;align-items:baseline;gap:4mm}
+.job-h h3{margin:0;font-size:10.2pt;line-height:1.3;font-weight:700}
+.job-h h3 span{font-weight:500;color:var(--ink-2)}
+.when{font:500 8pt/1 var(--mono);color:var(--ink-3);white-space:nowrap}
+.stack{font:400 7.8pt/1.4 var(--mono);color:var(--ch2);margin:.8mm 0 0}
+.stack.dev{color:var(--ch1)}
+ul{margin:1.2mm 0 0;padding-left:4mm;font-size:8.9pt;line-height:1.45;color:var(--ink-2)}
+li{margin:0 0 .3mm}
+li::marker{color:var(--ink-3)}
+.result{display:inline-block;margin-top:1.2mm;font-size:8.6pt;font-weight:600;color:var(--ch2);background:var(--ch2-tint);padding:.8mm 2mm;border-radius:1.2mm}
+aside{background:var(--panel);border-radius:2.5mm;padding:5.5mm 5mm;align-self:start}
+aside section{margin-bottom:5mm}
+aside section:last-child{margin-bottom:0}
+.sk{margin-bottom:2.6mm}
+.sk:last-child{margin-bottom:0}
+.sk b{display:block;font:500 7.2pt/1.2 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.8mm}
+.sk p{font-size:8.7pt;line-height:1.45;color:var(--ink)}
+.lang{display:flex;justify-content:space-between;font-size:9pt;line-height:1.7}
+.lang span:last-child{color:var(--ink-2)}
+.edu{margin-bottom:2.8mm}
+.edu:last-child{margin-bottom:0}
+.edu h3{margin:0;font-size:9.1pt;line-height:1.35;font-weight:700}
+.edu p{font-size:8.6pt;line-height:1.4;color:var(--ink-2)}
+.edu .when{display:block;margin-top:.8mm}
+footer{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:3mm;font:400 7.4pt/1 var(--mono);color:var(--ink-3)}
+a{color:inherit;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="who">
+      <span class="chip"><i></i>YM</span>
+      <div>
+        <h1>Yahav Mor</h1>
+        <p class="role">Full-Stack Developer · Automation Builder</p>
+      </div>
+    </div>
+    <ul class="contact">
+      <li>Kibbutz Na'an, Israel</li>
+      <li><b>054-344-1067</b></li>
+      <li><a href="mailto:yahavmor77@gmail.com"><b>yahavmor77@gmail.com</b></a></li>
+      <li><a href="https://github.com/yahavmor">github.com/yahavmor</a></li>
+      <li><a href="https://www.linkedin.com/in/yahav-mor-566291270/">linkedin.com/in/yahav-mor-566291270</a></li>
+      <li><a href="https://yahavmor.github.io/"><b>yahavmor.github.io</b></a></li>
+    </ul>
+    <div class="qr">
+<svg width="29mm" height="29mm" version="1.1" viewBox="0 0 29 29" xmlns="http://www.w3.org/2000/svg"><path d="M0,0H1V1H0zM1,0H2V1H1zM2,0H3V1H2zM3,0H4V1H3zM4,0H5V1H4zM5,0H6V1H5zM6,0H7V1H6zM8,0H9V1H8zM11,0H12V1H11zM13,0H14V1H13zM14,0H15V1H14zM15,0H16V1H15zM17,0H18V1H17zM18,0H19V1H18zM22,0H23V1H22zM23,0H24V1H23zM24,0H25V1H24zM25,0H26V1H25zM26,0H27V1H26zM27,0H28V1H27zM28,0H29V1H28zM0,1H1V2H0zM6,1H7V2H6zM9,1H10V2H9zM11,1H12V2H11zM15,1H16V2H15zM17,1H18V2H17zM20,1H21V2H20zM22,1H23V2H22zM28,1H29V2H28zM0,2H1V3H0zM2,2H3V3H2zM3,2H4V3H3zM4,2H5V3H4zM6,2H7V3H6zM8,2H9V3H8zM9,2H10V3H9zM13,2H14V3H13zM17,2H18V3H17zM18,2H19V3H18zM19,2H20V3H19zM22,2H23V3H22zM24,2H25V3H24zM25,2H26V3H25zM26,2H27V3H26zM28,2H29V3H28zM0,3H1V4H0zM2,3H3V4H2zM3,3H4V4H3zM4,3H5V4H4zM6,3H7V4H6zM10,3H11V4H10zM15,3H16V4H15zM16,3H17V4H16zM17,3H18V4H17zM20,3H21V4H20zM22,3H23V4H22zM24,3H25V4H24zM25,3H26V4H25zM26,3H27V4H26zM28,3H29V4H28zM0,4H1V5H0zM2,4H3V5H2zM3,4H4V5H3zM4,4H5V5H4zM6,4H7V5H6zM9,4H10V5H9zM10,4H11V5H10zM15,4H16V5H15zM16,4H17V5H16zM18,4H19V5H18zM22,4H23V5H22zM24,4H25V5H24zM25,4H26V5H25zM26,4H27V5H26zM28,4H29V5H28zM0,5H1V6H0zM6,5H7V6H6zM8,5H9V6H8zM9,5H10V6H9zM13,5H14V6H13zM14,5H15V6H14zM16,5H17V6H16zM17,5H18V6H17zM18,5H19V6H18zM22,5H23V6H22zM28,5H29V6H28zM0,6H1V7H0zM1,6H2V7H1zM2,6H3V7H2zM3,6H4V7H3zM4,6H5V7H4zM5,6H6V7H5zM6,6H7V7H6zM8,6H9V7H8zM10,6H11V7H10zM12,6H13V7H12zM14,6H15V7H14zM16,6H17V7H16zM18,6H19V7H18zM20,6H21V7H20zM22,6H23V7H22zM23,6H24V7H23zM24,6H25V7H24zM25,6H26V7H25zM26,6H27V7H26zM27,6H28V7H27zM28,6H29V7H28zM9,7H10V8H9zM11,7H12V8H11zM12,7H13V8H12zM13,7H14V8H13zM0,8H1V9H0zM2,8H3V9H2zM6,8H7V9H6zM7,8H8V9H7zM10,8H11V9H10zM12,8H13V9H12zM13,8H14V9H13zM15,8H16V9H15zM16,8H17V9H16zM20,8H21V9H20zM23,8H24V9H23zM26,8H27V9H26zM28,8H29V9H28zM3,9H4V10H3zM5,9H6V10H5zM8,9H9V10H8zM10,9H11V10H10zM16,9H17V10H16zM17,9H18V10H17zM19,9H20V10H19zM20,9H21V10H20zM21,9H22V10H21zM22,9H23V10H22zM23,9H24V10H23zM27,9H28V10H27zM28,9H29V10H28zM0,10H1V11H0zM2,10H3V11H2zM3,10H4V11H3zM6,10H7V11H6zM10,10H11V11H10zM12,10H13V11H12zM13,10H14V11H13zM14,10H15V11H14zM16,10H17V11H16zM17,10H18V11H17zM18,10H19V11H18zM19,10H20V11H19zM20,10H21V11H20zM22,10H23V11H22zM24,10H25V11H24zM25,10H26V11H25zM26,10H27V11H26zM28,10H29V11H28zM0,11H1V12H0zM4,11H5V12H4zM5,11H6V12H5zM7,11H8V12H7zM8,11H9V12H8zM9,11H10V12H9zM10,11H11V12H10zM14,11H15V12H14zM15,11H16V12H15zM16,11H17V12H16zM18,11H19V12H18zM20,11H21V12H20zM22,11H23V12H22zM25,11H26V12H25zM2,12H3V13H2zM3,12H4V13H3zM6,12H7V13H6zM11,12H12V13H11zM13,12H14V13H13zM14,12H15V13H14zM19,12H20V13H19zM22,12H23V13H22zM23,12H24V13H23zM28,12H29V13H28zM0,13H1V14H0zM1,13H2V14H1zM7,13H8V14H7zM9,13H10V14H9zM10,13H11V14H10zM13,13H14V14H13zM14,13H15V14H14zM17,13H18V14H17zM19,13H20V14H19zM20,13H21V14H20zM22,13H23V14H22zM23,13H24V14H23zM27,13H28V14H27zM28,13H29V14H28zM0,14H1V15H0zM6,14H7V15H6zM8,14H9V15H8zM9,14H10V15H9zM10,14H11V15H10zM15,14H16V15H15zM19,14H20V15H19zM23,14H24V15H23zM24,14H25V15H24zM28,14H29V15H28zM1,15H2V16H1zM2,15H3V16H2zM5,15H6V16H5zM9,15H10V16H9zM11,15H12V16H11zM13,15H14V16H13zM18,15H19V16H18zM21,15H22V16H21zM24,15H25V16H24zM5,16H6V17H5zM6,16H7V17H6zM12,16H13V17H12zM13,16H14V17H13zM15,16H16V17H15zM16,16H17V17H16zM18,16H19V17H18zM20,16H21V17H20zM22,16H23V17H22zM23,16H24V17H23zM28,16H29V17H28zM1,17H2V18H1zM2,17H3V18H2zM4,17H5V18H4zM5,17H6V18H5zM8,17H9V18H8zM10,17H11V18H10zM12,17H13V18H12zM16,17H17V18H16zM17,17H18V18H17zM19,17H20V18H19zM20,17H21V18H20zM22,17H23V18H22zM23,17H24V18H23zM26,17H27V18H26zM27,17H28V18H27zM28,17H29V18H28zM0,18H1V19H0zM1,18H2V19H1zM2,18H3V19H2zM3,18H4V19H3zM5,18H6V19H5zM6,18H7V19H6zM7,18H8V19H7zM8,18H9V19H8zM9,18H10V19H9zM11,18H12V19H11zM13,18H14V19H13zM14,18H15V19H14zM16,18H17V19H16zM19,18H20V19H19zM24,18H25V19H24zM25,18H26V19H25zM28,18H29V19H28zM3,19H4V20H3zM5,19H6V20H5zM7,19H8V20H7zM9,19H10V20H9zM11,19H12V20H11zM14,19H15V20H14zM15,19H16V20H15zM16,19H17V20H16zM18,19H19V20H18zM19,19H20V20H19zM20,19H21V20H20zM21,19H22V20H21zM22,19H23V20H22zM0,20H1V21H0zM1,20H2V21H1zM3,20H4V21H3zM5,20H6V21H5zM6,20H7V21H6zM10,20H11V21H10zM11,20H12V21H11zM12,20H13V21H12zM13,20H14V21H13zM14,20H15V21H14zM17,20H18V21H17zM18,20H19V21H18zM19,20H20V21H19zM20,20H21V21H20zM21,20H22V21H21zM22,20H23V21H22zM23,20H24V21H23zM24,20H25V21H24zM25,20H26V21H25zM27,20H28V21H27zM8,21H9V22H8zM12,21H13V22H12zM13,21H14V22H13zM14,21H15V22H14zM17,21H18V22H17zM20,21H21V22H20zM24,21H25V22H24zM25,21H26V22H25zM26,21H27V22H26zM28,21H29V22H28zM0,22H1V23H0zM1,22H2V23H1zM2,22H3V23H2zM3,22H4V23H3zM4,22H5V23H4zM5,22H6V23H5zM6,22H7V23H6zM8,22H9V23H8zM9,22H10V23H9zM12,22H13V23H12zM15,22H16V23H15zM20,22H21V23H20zM22,22H23V23H22zM24,22H25V23H24zM28,22H29V23H28zM0,23H1V24H0zM6,23H7V24H6zM9,23H10V24H9zM11,23H12V24H11zM12,23H13V24H12zM13,23H14V24H13zM17,23H18V24H17zM19,23H20V24H19zM20,23H21V24H20zM24,23H25V24H24zM27,23H28V24H27zM28,23H29V24H28zM0,24H1V25H0zM2,24H3V25H2zM3,24H4V25H3zM4,24H5V25H4zM6,24H7V25H6zM9,24H10V25H9zM10,24H11V25H10zM11,24H12V25H11zM12,24H13V25H12zM13,24H14V25H13zM15,24H16V25H15zM16,24H17V25H16zM17,24H18V25H17zM19,24H20V25H19zM20,24H21V25H20zM21,24H22V25H21zM22,24H23V25H22zM23,24H24V25H23zM24,24H25V25H24zM25,24H26V25H25zM27,24H28V25H27zM0,25H1V26H0zM2,25H3V26H2zM3,25H4V26H3zM4,25H5V26H4zM6,25H7V26H6zM9,25H10V26H9zM11,25H12V26H11zM12,25H13V26H12zM16,25H17V26H16zM20,25H21V26H20zM21,25H22V26H21zM24,25H25V26H24zM25,25H26V26H25zM26,25H27V26H26zM27,25H28V26H27zM0,26H1V27H0zM2,26H3V27H2zM3,26H4V27H3zM4,26H5V27H4zM6,26H7V27H6zM8,26H9V27H8zM9,26H10V27H9zM16,26H17V27H16zM17,26H18V27H17zM18,26H19V27H18zM24,26H25V27H24zM27,26H28V27H27zM28,26H29V27H28zM0,27H1V28H0zM6,27H7V28H6zM11,27H12V28H11zM13,27H14V28H13zM14,27H15V28H14zM15,27H16V28H15zM16,27H17V28H16zM18,27H19V28H18zM20,27H21V28H20zM23,27H24V28H23zM25,27H26V28H25zM0,28H1V29H0zM1,28H2V29H1zM2,28H3V29H2zM3,28H4V29H3zM4,28H5V29H4zM5,28H6V29H5zM6,28H7V29H6zM8,28H9V29H8zM11,28H12V29H11zM14,28H15V29H14zM17,28H18V29H17zM18,28H19V29H18zM19,28H20V29H19zM20,28H21V29H20zM21,28H22V29H21zM23,28H24V29H23zM28,28H29V29H28z" id="qr-path" fill="#0F1B33" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg><span>Portfolio</span></div>
+  </header>
+
+  <div class="body">
+    <main>
+      <section>
+        <h2>Summary</h2>
+        <p class="summary">Full-stack developer (React, Node.js, MongoDB) with a systems-integration background. Since 2023 I have integrated electronic and communication systems at Elbit Systems, and I build Make automations that run real businesses, with 90+ scenarios built. Coding Academy graduate and Practical Engineer in Electronics with honors.</p>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+        <div class="job">
+          <div class="job-h"><h3>System Integrator <span>· Elbit Systems</span></h3><span class="when">2023 - Present</span></div>
+          <ul>
+            <li>Integrate complex electronic and communication systems</li>
+            <li>Root cause analysis and technical solutions</li>
+            <li>Work across software, hardware and RF teams</li>
+            <li>Lead deployments and write technical documentation</li>
+          </ul>
+        </div>
+        <div class="job">
+          <div class="job-h"><h3>Founder <span>· Yahav Automations (freelance)</span></h3><span class="when">2026 - Present</span></div>
+          <ul>
+            <li>Make automations for small businesses in Israel: website leads to Google Sheets, instant alerts, branded confirmation emails and reports</li>
+            <li>Live demo: glow-clinic-demo.netlify.app</li>
+          </ul>
+        </div>
+        <div class="job">
+          <div class="job-h"><h3>Spectrum Analyst <span>· IDF, Unit 513</span></h3><span class="when">2020 - 2023</span></div>
+          <ul>
+            <li>RF signal analysis and interference resolution</li>
+            <li>Led field teams in mission-critical operations</li>
+            <li>Technical reports and coordination with stakeholders</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Selected projects</h2>
+        <div class="job">
+          <div class="job-h"><h3>Creator funnel automation <span>· Ben Nahum, Digital Online</span></h3></div>
+          <p class="stack">Make · ManyChat · Discord · Cardcom · Google Sheets · WhatsApp Cloud API</p>
+          <ul>
+            <li>Instagram DMs, Discord community, sales page, Cardcom checkout and email reports, automated end to end</li>
+            <li>Abandoned-checkout follow-up and daily, weekly and monthly reports with no manual step</li>
+          </ul>
+          <span class="result">80% click-through on the community link in the welcome DM</span>
+        </div>
+        <div class="job">
+          <div class="job-h"><h3>LeadFlow <span>· lead pipeline for small businesses</span></h3><span class="when">2026</span></div>
+          <p class="stack dev">React · Redux Toolkit · Node.js · Express · MongoDB · Socket.io</p>
+          <ul><li>One webhook for every website form, a live drag-and-drop board and a dashboard; API, UI and E2E tests in GitHub Actions</li></ul>
+        </div>
+        <div class="job">
+          <div class="job-h"><h3>StockLiser <span>· stocks and memes app</span></h3><span class="when">2026</span></div>
+          <p class="stack dev">React · Redux Toolkit · MUI · Node.js · Express · MongoDB</p>
+          <ul><li>Real-time stock search, personal watchlist and a private meme gallery; session auth with bcrypt; live on Render</li></ul>
+        </div>
+        <div class="job">
+          <div class="job-h"><h3>MovieLand <span>· movie platform</span></h3><span class="when">2026</span></div>
+          <p class="stack dev">React · Redux Toolkit · Node.js · Express · MySQL · Sequelize · JWT</p>
+          <ul><li>Browse and search titles, trailers and per-user liked lists; relational data with Sequelize ORM; live on Vercel</li></ul>
+        </div>
+      </section>
+    </main>
+
+    <aside>
+      <section>
+        <h2>Skills</h2>
+        <div class="sk"><b>Frontend</b><p>HTML5, CSS3, JavaScript (ES6+), React, Redux Toolkit, MUI, React Hook Form, Formik, Vite</p></div>
+        <div class="sk"><b>Backend</b><p>Node.js, Express, REST APIs, JWT and session auth, Socket.io</p></div>
+        <div class="sk"><b>Databases</b><p>MongoDB, Mongoose, MySQL, Sequelize</p></div>
+        <div class="sk"><b>Automation</b><p>Make, webhooks, Google Sheets, Gmail, WhatsApp Cloud API, Discord, ManyChat</p></div>
+        <div class="sk"><b>Tools</b><p>Git / GitHub, GitHub Actions, Playwright, Vitest, Vercel, Render, Netlify</p></div>
+        <div class="sk"><b>Engineering</b><p>Systems integration, RF analysis, root cause analysis, technical documentation</p></div>
+      </section>
+      <section>
+        <h2>Education</h2>
+        <div class="edu"><h3>Full-Stack Development</h3><p>Coding Academy · Certified</p><span class="when">Jan 2025 - Feb 2026</span></div>
+        <div class="edu"><h3>Practical Engineer, Electronics and Computers</h3><p>ORT Rehovot · With honors</p><span class="when">2018 - 2020</span></div>
+        <div class="edu"><h3>Full matriculation</h3><p>Math, Physics, English (5 units)</p></div>
+      </section>
+      <section>
+        <h2>Languages</h2>
+        <div class="lang"><span>Hebrew</span><span>Native</span></div>
+        <div class="lang"><span>English</span><span>Fluent</span></div>
+      </section>
+    </aside>
+  </div>
+
+  <footer><span>Yahav Mor · CV · 2026</span><span>Live projects and contact: yahavmor.github.io</span></footer>
+</div>
+</body>
+</html>

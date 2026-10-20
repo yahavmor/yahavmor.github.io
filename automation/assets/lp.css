@@ -210,3 +210,22 @@ main [id]{scroll-margin-top:84px}
 .hub-card .go{margin-top:auto;color:var(--teal);font-weight:600}
 @media (max-width:900px){.hub-cards{grid-template-columns:1fr 1fr}}
 @media (max-width:600px){.hub-cards{grid-template-columns:1fr}}
+
+/* lead magnet */
+.magnet{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+.magnet-side h2{margin-bottom:12px}
+.magnet-side p{color:var(--ink-2)}
+.magnet-list{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px}
+.magnet-list li{display:flex;gap:10px;align-items:center;font-weight:600}
+.magnet-list .ico{width:20px;height:20px;color:var(--teal)}
+.sheet-prev{margin-top:24px;max-width:430px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper);box-shadow:var(--shadow);font-size:14px}
+.sheet-prev>div{display:grid;grid-template-columns:1.3fr 1.2fr .8fr;gap:8px;align-items:center;padding:9px 14px;border-top:1px solid var(--line)}
+.sheet-prev .sp-h{background:var(--navy);color:#fff;font-weight:600;border-top:0}
+.pill.warm{background:#FFF4DA;color:#8A5A00}
+.pill.ok{background:#DCF5E5;color:#1E7A43}
+.due{font-weight:700;font-size:13px}
+.due.late{color:#B42318}
+.due.today{color:#8A5A00}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink-2);margin:2px 0 16px;cursor:pointer}
+.check input{margin-top:3px;width:18px;height:18px;accent-color:var(--teal);flex:none}
+@media (max-width:900px){.magnet{grid-template-columns:1fr}.sheet-prev{display:none}}

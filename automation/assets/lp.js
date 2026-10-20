@@ -49,6 +49,46 @@
     });
   }
 
+  var t0 = Date.now();
+
+  /* ---------- free template (lead magnet) → Make webhook ---------- */
+  var MAGNET_HOOK = "https://hook.eu1.make.com/jl1vqphwvlwut4sj5pafbxele89iojii";
+  var mForm = $("#magnetForm");
+  if (mForm) {
+    var mBtn = $("#magnetBtn"), mStatus = $("#magnetStatus");
+    var mShow = function (kind, html) { mStatus.hidden = false; mStatus.className = "status " + kind; mStatus.innerHTML = html; };
+    mForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!mForm.checkValidity()) { mForm.reportValidity(); return; }
+      var fd = new FormData(mForm);
+      if (String(fd.get("website") || "").trim()) return; /* bot */
+      var body = new URLSearchParams();
+      body.append("name", String(fd.get("name") || "").trim());
+      body.append("email", String(fd.get("email") || "").trim());
+      body.append("business", String(fd.get("business") || "").trim());
+      body.append("consent", fd.get("consent") === "yes" ? "yes" : "no");
+      body.append("page", location.href.split("#")[0]);
+      body.append("utm", (window.LPM && window.LPM.source ? window.LPM.source : "") + (utm ? " · " + utm : ""));
+      body.append("t", String(Date.now() - t0));
+      mBtn.disabled = true; mBtn.textContent = "שולח...";
+      mShow("wait", "שולח...");
+      var ctrl = window.AbortController ? new AbortController() : null;
+      var killer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 25000);
+      fetch(MAGNET_HOOK, { method: "POST", body: body, signal: ctrl ? ctrl.signal : undefined })
+        .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); })
+        .then(function () {
+          clearTimeout(killer);
+          mShow("ok", "<b>נשלח!</b> התבנית בדרך למייל שלך. אם היא לא מגיעה תוך כמה דקות, כדאי לבדוק גם בתיקיית קידומי מכירות או ספאם.");
+          mForm.reset(); mBtn.disabled = false; mBtn.textContent = "שלחו לי את התבנית";
+        })
+        .catch(function () {
+          clearTimeout(killer);
+          mShow("err", "<b>השליחה לא הצליחה.</b> אפשר לנסות שוב, או לכתוב לי ל-<a href=\"mailto:yahavmor77@gmail.com\">yahavmor77@gmail.com</a> ואשלח את התבנית ידנית.");
+          mBtn.disabled = false; mBtn.textContent = "שלחו לי את התבנית";
+        });
+    });
+  }
+
   /* ---------- contact form → Make webhook ---------- */
   var form = $("#leadForm");
   if (!form) return;

@@ -22,7 +22,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="he_IL">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Yahav Mor", "jobTitle": "Full-Stack Developer", "url": "https://yahavmor.github.io/", "email": "mailto:yahavmor77@gmail.com", "sameAs": ["https://github.com/yahavmor", "https://yahav-automations.netlify.app"], "address": {"@type": "PostalAddress", "addressLocality": "Kibbutz Na'an", "addressCountry": "IL"}, "knowsAbout": ["React", "Redux", "Node.js", "Express", "MongoDB", "Make", "Business automation", "Systems integration"], "knowsLanguage": ["he", "en"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Yahav Mor", "jobTitle": "Full-Stack Developer", "url": "https://yahavmor.github.io/", "email": "mailto:yahavmor77@gmail.com", "sameAs": ["https://github.com/yahavmor", "https://www.linkedin.com/in/yahav-mor-566291270/", "https://yahav-automations.netlify.app"], "image": "https://yahavmor.github.io/yahav.jpg", "address": {"@type": "PostalAddress", "addressLocality": "Kibbutz Na'an", "addressCountry": "IL"}, "knowsAbout": ["React", "Redux", "Node.js", "Express", "MongoDB", "Make", "Business automation", "Systems integration"], "knowsLanguage": ["he", "en"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Secular+One&display=swap">
@@ -62,6 +62,7 @@
   --focus:#2F6BFF;
   --on-ink:#FFFFFF;
   --shadow:0 1px 2px rgba(15,27,51,.06),0 10px 28px -14px rgba(15,27,51,.22);
+  --avatar:url("yahav.jpg");
   --font-display:"Secular One","IBM Plex Sans Hebrew",system-ui,sans-serif;
   --font-body:"IBM Plex Sans","IBM Plex Sans Hebrew",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
   --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,"IBM Plex Sans Hebrew",monospace;
@@ -157,6 +158,15 @@ h1{font-family:var(--font-display);font-weight:400;font-size:clamp(2.55rem,5.4vw
 .quick a{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--ink-2)}
 .quick a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 .quick .i{width:16px;height:16px}
+
+.byline{display:flex;align-items:center;gap:16px}
+.avatar{flex:none;width:64px;height:64px;border-radius:50%;background:var(--paper-2) var(--avatar) center/cover no-repeat;border:2px solid var(--sheet);box-shadow:0 0 0 1px var(--rule),var(--shadow)}
+.avatar.sm{width:52px;height:52px}
+.byline-name{margin:0 0 5px;font-weight:700;font-size:17px;line-height:1.3;display:flex;align-items:center;flex-wrap:wrap;gap:6px 10px}
+.open-pill{display:inline-flex;align-items:center;gap:6px;font:500 11.5px/1 var(--font-mono);letter-spacing:.03em;color:var(--ch1);background:var(--ch1-tint);padding:5px 9px;border-radius:999px;white-space:nowrap}
+.open-pill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ch1)}
+:root[lang="he"] .open-pill{font-family:var(--font-body);letter-spacing:0;font-size:12.5px;font-weight:600}
+.byline .eyebrow{margin:0}
 
 /* Fig. 1 */
 .fig{border:1px solid var(--rule);border-radius:14px;background:var(--sheet);overflow:hidden;box-shadow:var(--shadow)}
@@ -281,6 +291,28 @@ h4{font-size:1.08rem;line-height:1.3;margin:0;font-weight:700}
 .mini-top .i{width:20px;height:20px;color:var(--ch1)}
 .mini p{margin:0;color:var(--ink-2);font-size:15px;flex-grow:1}
 .mini .txt-link{margin-top:auto}
+@supports (grid-template-rows:subgrid){
+  .mini{display:grid;grid-row:span 6;grid-template-rows:subgrid;row-gap:12px;align-content:start}
+  .mini p{flex-grow:0}
+  .mini .txt-link{margin-top:0}
+}
+.mini-top .yr{font:500 12px/1 var(--font-mono);color:var(--ink-3)}
+.stack-dl{margin:0;display:grid;gap:8px;padding-top:12px;border-top:1px dashed var(--rule)}
+.stack-dl div{display:grid;grid-template-columns:62px minmax(0,1fr);gap:10px;align-items:baseline}
+:root[lang="he"] .stack-dl div{grid-template-columns:54px minmax(0,1fr)}
+.stack-dl dt{font:500 10.5px/1.4 var(--font-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+:root[lang="he"] .stack-dl dt{font-family:var(--font-body);letter-spacing:0;font-size:12px}
+.stack-dl dd{margin:0;font:400 12.5px/1.5 var(--font-mono);color:var(--ink-2)}
+.proj-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:4px}
+.proj-links .txt-link{font-size:14px}
+.wake{font-size:12.5px;color:var(--ink-3);margin:-4px 0 0}
+.more{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 18px;margin-top:22px;padding:16px 18px;border:1px solid var(--rule);border-radius:14px;background:var(--sheet)}
+.more-label{font:500 11.5px/1.4 var(--font-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+:root[lang="he"] .more-label{font-family:var(--font-body);letter-spacing:0;font-size:13px}
+.more ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.more a{display:inline-flex;align-items:baseline;gap:8px;padding:7px 11px;border-radius:8px;background:var(--paper);border:1px solid var(--rule-2);text-decoration:none;font-weight:600;font-size:14px}
+.more a:hover{border-color:var(--ink-3)}
+.more a span{font:400 12px/1 var(--font-mono);color:var(--ink-3)}
 
 /* ---------- automation ---------- */
 .auto-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
@@ -379,6 +411,9 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .status b{font-weight:600}
 .status .mono{font-family:var(--font-mono);font-size:13px}
 .direct h3{font-size:1.15rem;margin:0 0 14px}
+.me{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.me strong{display:block;font-size:16px}
+.me span{font-size:14px;color:var(--ink-2)}
 .chans{list-style:none;margin:0;padding:0;border:1px solid var(--rule);border-radius:14px;background:var(--sheet);overflow:hidden}
 .chans li{display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 16px;border-top:1px solid var(--rule)}
 .chans li:first-child{border-top:0}
@@ -455,7 +490,13 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <p class="eyebrow"><span data-l="en">Full-Stack Developer · Automation Builder · Kibbutz Na'an, Israel</span><span data-l="he">מפתח Full Stack · בונה אוטומציות · קיבוץ נען</span></p>
+        <div class="byline">
+          <span class="avatar" role="img" aria-label="Yahav Mor"></span>
+          <div>
+            <p class="byline-name"><span data-l="en">Yahav Mor</span><span data-l="he">יהב מור</span><span class="open-pill"><span data-l="en">Open to developer roles</span><span data-l="he">פתוח למשרות פיתוח</span></span></p>
+            <p class="eyebrow"><span data-l="en">Full-Stack Developer · Automation Builder</span><span data-l="he">מפתח Full Stack · בונה אוטומציות</span></p>
+          </div>
+        </div>
         <h1><span data-l="en">I make systems talk to each other.</span><span data-l="he">אני גורם למערכות לדבר אחת עם השנייה.</span></h1>
         <p class="lede" data-l="en">Since 2023 I've been integrating electronic and communication systems at Elbit Systems. I also build web apps with React and Node.js, and Make automations that keep real businesses running every day.</p>
         <p class="lede" data-l="he">מאז 2023 אני עושה אינטגרציה של מערכות אלקטרוניקה ותקשורת באלביט מערכות. במקביל אני בונה אפליקציות ווב ב-⁠React וב-⁠Node.js, ואוטומציות ב-⁠Make שמפעילות עסקים אמיתיים כל יום.</p>
@@ -527,7 +568,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
       <span class="cap"><span data-l="en">Table 1 · Key specifications</span><span data-l="he">טבלה 1 · מפרט עיקרי</span></span>
       <dl class="spec-grid">
         <div class="spec"><dt><span data-l="en">Open to</span><span data-l="he">פתוח ל</span></dt><dd><span data-l="en">Full-stack / web developer roles</span><span data-l="he">משרות פיתוח Full Stack / Web</span></dd></div>
-        <div class="spec"><dt><span data-l="en">Stack</span><span data-l="he">טכנולוגיות</span></dt><dd>React · Redux · Node.js · Express · MongoDB</dd></div>
+        <div class="spec"><dt><span data-l="en">Stack</span><span data-l="he">טכנולוגיות</span></dt><dd>React · Redux Toolkit · Node.js · Express · MongoDB · MySQL</dd></div>
         <div class="spec"><dt><span data-l="en">Automation</span><span data-l="he">אוטומציה</span></dt><dd><span data-l="en">90+ Make scenarios built</span><span data-l="he">יותר מ-⁠90 תרחישי Make שבניתי</span></dd></div>
         <div class="spec"><dt><span data-l="en">Currently</span><span data-l="he">כיום</span></dt><dd><span data-l="en">System Integrator, Elbit Systems</span><span data-l="he">System Integrator באלביט מערכות</span></dd></div>
         <div class="spec"><dt><span data-l="en">Languages</span><span data-l="he">שפות</span></dt><dd><span data-l="en">Hebrew (native) · English (fluent)</span><span data-l="he">עברית (שפת אם) · אנגלית (רמה גבוהה)</span></dd></div>
@@ -632,33 +673,65 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 
     <div class="sub-h">
       <h3><span data-l="en">Code projects</span><span data-l="he">פרויקטי קוד</span></h3>
-      <p><span data-l="en">JavaScript end to end: React on the front, Node.js and MongoDB behind it.</span><span data-l="he">JavaScript מקצה לקצה: React בצד הלקוח, Node.js ו-⁠MongoDB מאחור.</span></p>
+      <p><span data-l="en">Full-stack apps, each with its own frontend and backend repo.</span><span data-l="he">אפליקציות Full Stack, לכל אחת ריפו נפרד לצד הלקוח ולשרת.</span></p>
     </div>
     <div class="trio">
       <article class="mini">
-        <div class="mini-top"><span class="badge ch1">CH1 · Full stack</span><svg class="i"><use href="#i-code"/></svg></div>
-        <h4>Full-Stack Task Manager</h4>
-        <p data-l="en">A full CRUD app with JWT authentication and protected routes, a responsive UI with state management, deployed to the cloud.</p>
-        <p data-l="he">אפליקציית CRUD מלאה עם אימות JWT ונתיבים מוגנים, ממשק רספונסיבי עם ניהול state, ופריסה לענן.</p>
-        <ul class="tags"><li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li></ul>
-        <a class="txt-link" href="https://github.com/yahavmor" target="_blank" rel="noopener"><span data-l="en">Code on GitHub</span><span data-l="he">הקוד ב-⁠GitHub</span><svg class="i"><use href="#i-ext"/></svg></a>
+        <div class="mini-top"><span class="badge ch1">CH1 · Full stack</span><span class="yr">2026</span></div>
+        <h4>StockLiser</h4>
+        <p data-l="en">Stocks and memes in one app: search stocks in real time, keep a personal watchlist, and generate memes into a private gallery.</p>
+        <p data-l="he">מניות וממים באפליקציה אחת: חיפוש מניות בזמן אמת, רשימת מעקב אישית, ומחולל ממים עם גלריה פרטית.</p>
+        <dl class="stack-dl">
+          <div><dt><span data-l="en">Front</span><span data-l="he">לקוח</span></dt><dd>React, Redux Toolkit, MUI, React Hook Form, Vite</dd></div>
+          <div><dt><span data-l="en">Back</span><span data-l="he">שרת</span></dt><dd>Node.js, Express, MongoDB, sessions, bcrypt</dd></div>
+        </dl>
+        <div class="proj-links">
+          <a class="btn btn-ghost btn-sm" href="https://backend-stock-sv6k.onrender.com" target="_blank" rel="noopener"><span data-l="en">Live app</span><span data-l="he">לאפליקציה</span><svg class="i"><use href="#i-ext"/></svg></a>
+          <a class="txt-link" href="https://github.com/yahavmor/StockLiser---FRONTEND" target="_blank" rel="noopener"><svg class="i"><use href="#i-code"/></svg><span data-l="en">Frontend</span><span data-l="he">צד לקוח</span></a>
+          <a class="txt-link" href="https://github.com/yahavmor/StockLiser---BACKEND" target="_blank" rel="noopener"><svg class="i"><use href="#i-code"/></svg><span data-l="en">Backend</span><span data-l="he">שרת</span></a>
+        </div>
+        <p class="wake"><span data-l="en">Free hosting: the first load can take up to a minute.</span><span data-l="he">אחסון חינמי: הטעינה הראשונה יכולה לקחת עד דקה.</span></p>
       </article>
       <article class="mini">
-        <div class="mini-top"><span class="badge ch1">CH1 · Front end</span><svg class="i"><use href="#i-code"/></svg></div>
-        <h4>Weather Dashboard</h4>
-        <p data-l="en">Real-time weather data from an external API in a responsive dashboard, built from clean, reusable components.</p>
-        <p data-l="he">נתוני מזג אוויר בזמן אמת מ-⁠API חיצוני, בדשבורד רספונסיבי שבנוי מקומפוננטות נקיות ומודולריות.</p>
-        <ul class="tags"><li>React</li><li>REST API</li></ul>
-        <a class="txt-link" href="https://github.com/yahavmor" target="_blank" rel="noopener"><span data-l="en">Code on GitHub</span><span data-l="he">הקוד ב-⁠GitHub</span><svg class="i"><use href="#i-ext"/></svg></a>
+        <div class="mini-top"><span class="badge ch1">CH1 · Full stack</span><span class="yr">2026</span></div>
+        <h4>MovieLand</h4>
+        <p data-l="en">A movie platform inspired by streaming services: browse and search titles, watch trailers, and keep a personal list of liked movies.</p>
+        <p data-l="he">פלטפורמת סרטים בהשראת שירותי סטרימינג: גלישה וחיפוש סרטים, צפייה בטריילרים, ורשימה אישית של סרטים שאהבתם.</p>
+        <dl class="stack-dl">
+          <div><dt><span data-l="en">Front</span><span data-l="he">לקוח</span></dt><dd>React, Redux Toolkit, Vite, Vercel</dd></div>
+          <div><dt><span data-l="en">Back</span><span data-l="he">שרת</span></dt><dd>Node.js, Express, MySQL, Sequelize, JWT</dd></div>
+        </dl>
+        <div class="proj-links">
+          <a class="btn btn-ghost btn-sm" href="https://movie-land-frontend-kfja.vercel.app" target="_blank" rel="noopener"><span data-l="en">Live app</span><span data-l="he">לאפליקציה</span><svg class="i"><use href="#i-ext"/></svg></a>
+          <a class="txt-link" href="https://github.com/yahavmor/MovieLand-FRONTEND" target="_blank" rel="noopener"><svg class="i"><use href="#i-code"/></svg><span data-l="en">Frontend</span><span data-l="he">צד לקוח</span></a>
+          <a class="txt-link" href="https://github.com/yahavmor/MovieLand-BACKEND" target="_blank" rel="noopener"><svg class="i"><use href="#i-code"/></svg><span data-l="en">Backend</span><span data-l="he">שרת</span></a>
+        </div>
       </article>
       <article class="mini">
-        <div class="mini-top"><span class="badge ch1">CH1 · Back end</span><svg class="i"><use href="#i-code"/></svg></div>
-        <h4>User Management API</h4>
-        <p data-l="en">A REST API with complete CRUD operations, input validation and authorization.</p>
-        <p data-l="he">REST API עם פעולות CRUD מלאות, ולידציה של קלט והרשאות.</p>
-        <ul class="tags"><li>Node.js</li><li>Express</li><li>MongoDB</li></ul>
-        <a class="txt-link" href="https://github.com/yahavmor" target="_blank" rel="noopener"><span data-l="en">Code on GitHub</span><span data-l="he">הקוד ב-⁠GitHub</span><svg class="i"><use href="#i-ext"/></svg></a>
+        <div class="mini-top"><span class="badge ch1">CH1 · Full stack</span><span class="yr">2025</span></div>
+        <h4>MisToy</h4>
+        <p data-l="en">A toy store with a filterable catalog, a charts dashboard, store locations on Google Maps, a multi-language UI and real-time chat.</p>
+        <p data-l="he">חנות צעצועים עם קטלוג מסונן, דשבורד גרפים, מיקומי סניפים על Google Maps, ממשק רב-לשוני וצ׳אט בזמן אמת.</p>
+        <dl class="stack-dl">
+          <div><dt><span data-l="en">Front</span><span data-l="he">לקוח</span></dt><dd>React, Redux, MUI, Formik, Yup, i18next, Chart.js</dd></div>
+          <div><dt><span data-l="en">Back</span><span data-l="he">שרת</span></dt><dd>Node.js, Express, MongoDB, sessions, Socket.io</dd></div>
+        </dl>
+        <div class="proj-links">
+          <a class="txt-link" href="https://github.com/yahavmor/mistoy-frontend" target="_blank" rel="noopener"><svg class="i"><use href="#i-code"/></svg><span data-l="en">Frontend</span><span data-l="he">צד לקוח</span></a>
+          <a class="txt-link" href="https://github.com/yahavmor/mistoy-backend" target="_blank" rel="noopener"><svg class="i"><use href="#i-code"/></svg><span data-l="en">Backend</span><span data-l="he">שרת</span></a>
+        </div>
       </article>
+    </div>
+    <div class="more">
+      <span class="more-label"><span data-l="en">More on GitHub</span><span data-l="he">עוד ב-⁠GitHub</span></span>
+      <ul>
+        <li><a href="https://github.com/yahavmor/beatify---backend" target="_blank" rel="noopener">Beatify API <span>Node.js · MongoDB · Socket.io</span></a></li>
+        <li><a href="https://github.com/yahavmor/google-keep-and-gmail" target="_blank" rel="noopener">KeepMail <span>React</span></a></li>
+        <li><a href="https://github.com/yahavmor/Mine-Sweeper" target="_blank" rel="noopener">Mine Sweeper <span>JavaScript</span></a></li>
+        <li><a href="https://github.com/yahavmor/packman" target="_blank" rel="noopener">Pacman <span>JavaScript</span></a></li>
+        <li><a href="https://github.com/yahavmor/Meme-generator" target="_blank" rel="noopener">Meme Generator <span>Canvas</span></a></li>
+        <li><a href="https://github.com/yahavmor/WikiTube" target="_blank" rel="noopener">WikiTube <span>APIs</span></a></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -807,11 +880,11 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
       <table class="skills">
         <caption><span class="cap"><span data-l="en">Table 2 · Skills</span><span data-l="he">טבלה 2 · מיומנויות</span></span></caption>
         <tbody>
-          <tr><th scope="row"><span data-l="en">Frontend</span><span data-l="he">פרונטאנד</span></th><td>HTML5, CSS3, JavaScript (ES6+), React, Hooks, Redux / Context, jQuery</td></tr>
-          <tr><th scope="row"><span data-l="en">Backend</span><span data-l="he">בקאנד</span></th><td>Node.js, Express, REST APIs, JWT auth, WebSockets</td></tr>
-          <tr><th scope="row"><span data-l="en">Databases</span><span data-l="he">מסדי נתונים</span></th><td>MongoDB, Mongoose, MySQL</td></tr>
+          <tr><th scope="row"><span data-l="en">Frontend</span><span data-l="he">פרונטאנד</span></th><td>HTML5, CSS3, JavaScript (ES6+), React, Redux Toolkit, MUI, React Hook Form, Formik, Vite</td></tr>
+          <tr><th scope="row"><span data-l="en">Backend</span><span data-l="he">בקאנד</span></th><td>Node.js, Express, REST APIs, JWT and session auth, Socket.io</td></tr>
+          <tr><th scope="row"><span data-l="en">Databases</span><span data-l="he">מסדי נתונים</span></th><td>MongoDB, Mongoose, MySQL, Sequelize</td></tr>
           <tr><th scope="row"><span data-l="en">Automation</span><span data-l="he">אוטומציה</span></th><td>Make, webhooks, Google Sheets, Gmail, WhatsApp Cloud API, Discord, ManyChat</td></tr>
-          <tr><th scope="row"><span data-l="en">Tools</span><span data-l="he">כלים</span></th><td>Git / GitHub, Netlify, Render, Heroku, CLI</td></tr>
+          <tr><th scope="row"><span data-l="en">Tools</span><span data-l="he">כלים</span></th><td>Git / GitHub, Vercel, Render, Netlify, CLI</td></tr>
           <tr><th scope="row"><span data-l="en">Engineering</span><span data-l="he">הנדסה</span></th><td><span data-l="en">Systems integration, RF analysis, root cause analysis, technical documentation</span><span data-l="he">אינטגרציית מערכות, ניתוח RF, ניתוח שורש תקלות, תיעוד טכני</span></td></tr>
         </tbody>
       </table>
@@ -885,6 +958,10 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
       </div>
 
       <div class="direct">
+        <div class="me">
+          <span class="avatar sm" role="img" aria-label="Yahav Mor"></span>
+          <div><strong><span data-l="en">Yahav Mor</span><span data-l="he">יהב מור</span></strong><span><span data-l="en">Usually replies within 24 hours</span><span data-l="he">עונה בדרך כלל תוך 24 שעות</span></span></div>
+        </div>
         <h3><span data-l="en">Or reach me directly</span><span data-l="he">או ישירות</span></h3>
         <ul class="chans">
           <li>
@@ -933,7 +1010,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
   "use strict";
   var CONFIG = {
     hook: "https://hook.eu1.make.com/i8hlyly2spoe1etf9ubdmi05pmrq9s2e",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/yahav-mor-566291270/",
     cv: "cv.pdf",
     setTitle: true
   };

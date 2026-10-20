@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>איך לחבר טופס באתר ל-Google Sheets (וגם לקבל התראה במייל) | יהב מור</title>
+<meta name="description" content="שלוש דרכים לחבר טופס יצירת קשר לגוגל שיטס: Google Forms, אינטגרציה של בונה האתר, או webhook ל-Make. השוואה, הוראות צעד אחר צעד וטיפים לנתונים נקיים.">
+<link rel="canonical" href="https://yahavmor.github.io/automation/guides/form-to-google-sheets/">
+<meta name="author" content="יהב מור">
+<meta name="theme-color" content="#0F1B33">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<meta property="og:site_name" content="יהב מור · אוטומציות לעסקים">
+<meta property="og:url" content="https://yahavmor.github.io/automation/guides/form-to-google-sheets/">
+<meta property="og:title" content="איך לחבר טופס באתר ל-Google Sheets (וגם לקבל התראה במייל) | יהב מור">
+<meta property="og:description" content="שלוש דרכים לחבר טופס יצירת קשר לגוגל שיטס: Google Forms, אינטגרציה של בונה האתר, או webhook ל-Make. השוואה, הוראות צעד אחר צעד וטיפים לנתונים נקיים.">
+<meta property="og:image" content="https://yahavmor.github.io/automation/assets/og-automation.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&family=Secular+One&display=swap">
+<link rel="stylesheet" href="/automation/assets/lp.css?v=3">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "איך לחבר טופס באתר ל-Google Sheets", "description": "שלוש דרכים לחבר טופס יצירת קשר לגוגל שיטס: Google Forms, אינטגרציה של בונה האתר, או webhook ל-Make. השוואה, הוראות צעד אחר צעד וטיפים לנתונים נקיים.", "inLanguage": "he", "url": "https://yahavmor.github.io/automation/guides/form-to-google-sheets/", "mainEntityOfPage": "https://yahavmor.github.io/automation/guides/form-to-google-sheets/", "datePublished": "2026-10-20", "dateModified": "2026-10-20", "image": "https://yahavmor.github.io/automation/assets/og-automation.png", "author": {"@type": "Person", "name": "יהב מור", "url": "https://yahavmor.github.io/"}, "publisher": {"@type": "Person", "name": "יהב מור", "url": "https://yahavmor.github.io/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "זה עובד גם עם Contact Form 7 או WPForms?", "acceptedAnswer": {"@type": "Answer", "text": "ברוב תוספי הטפסים לוורדפרס יש אפשרות, מובנית או דרך תוסף נוסף, לשלוח את הטופס לכתובת webhook. משם העבודה ב-Make זהה."}}, {"@type": "Question", "name": "אפשר לעשות את זה בלי Make?", "acceptedAnswer": {"@type": "Answer", "text": "כן, עם Google Apps Script או עם החיבור של בונה האתר. היתרון של Make הוא שבמקום אחד יש גם מיילים, התראות, סינון וטיפול בשגיאות, בלי לכתוב קוד."}}, {"@type": "Question", "name": "מה קורה אם התרחיש ב-Make כבוי לרגע?", "acceptedAnswer": {"@type": "Answer", "text": "Make שומר בקשות שמגיעות ל-webhook בתור, ומעבד אותן כשהתרחיש פעיל שוב. בכל זאת כדאי להשאיר גם את מייל ההתראה המקורי של הטופס."}}, {"@type": "Question", "name": "כמה פניות אפשר לקבל בתוכנית החינמית?", "acceptedAnswer": {"@type": "Answer", "text": "בתרחיש של webhook, שורה בגיליון ומייל התראה, כל פנייה צורכת בערך 3 קרדיטים, כלומר בערך 300 פניות בחודש מתוך 1,000 הקרדיטים."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "יהב מור", "item": "https://yahavmor.github.io/"}, {"@type": "ListItem", "position": 2, "name": "אוטומציות לעסקים", "item": "https://yahavmor.github.io/automation/"}, {"@type": "ListItem", "position": 3, "name": "מדריכים", "item": "https://yahavmor.github.io/automation/guides/"}, {"@type": "ListItem", "position": 4, "name": "איך לחבר טופס באתר ל-Google Sheets", "item": "https://yahavmor.github.io/automation/guides/form-to-google-sheets/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">דילוג לתוכן</a>
+<header class="top"><div class="wrap">
+  <a class="brand" href="/automation/"><span class="mark">YM</span><span>יהב מור<small>אוטומציות לעסקים</small></span></a>
+  <nav class="nav" aria-label="ניווט"><a href="/automation/guides/">מדריכים</a><a href="/automation/#fields">תחומים</a><a href="#template">תבנית חינם</a></nav>
+  <a class="btn btn-primary btn-sm" href="/automation/#contact">לשיחה קצרה</a>
+</div></header>
+
+<main id="main">
+<article class="section article-sec"><div class="wrap"><div class="article">
+  <nav class="crumbs" aria-label="פירורי לחם"><a href="/automation/">אוטומציות לעסקים</a> / <a href="/automation/guides/">מדריכים</a></nav>
+  <h1>איך לחבר טופס באתר ל-Google Sheets</h1>
+  <p class="lead">שלוש דרכים לחבר טופס יצירת קשר לגיליון, מה ההבדל ביניהן, ואיך עושים את זה עם Make כך שכל פנייה נשמרת ומגיעה אליכם גם במייל.</p>
+  <p class="meta-line">יהב מור · עודכן 20/10/2026 · 7 דקות קריאה</p>
+  
+<h2>שלוש דרכים, בקצרה</h2>
+<div class="tbl-wrap"><table class="cmp">
+<thead><tr><th>דרך</th><th>עלות</th><th>מתאים ל</th><th>החיסרון העיקרי</th></tr></thead>
+<tbody>
+<tr><td><b>Google Forms</b></td><td>חינם</td><td>טופס פשוט, בלי עיצוב מיוחד</td><td>הטופס לא נראה כמו האתר, וקשה לשלוח מייל אישור ממותג</td></tr>
+<tr><td><b>חיבור מובנה של בונה האתר</b></td><td>משתנה</td><td>כשהפלטפורמה כבר תומכת ב-Google Sheets</td><td>כל פלטפורמה עובדת אחרת, ולרוב אין מייל אישור או תזכורת</td></tr>
+<tr><td><b>Webhook ל-Make</b></td><td>חינם עד 1,000 קרדיטים בחודש</td><td>כל טופס, עם מיילים, התראות וניקוי נתונים</td><td>דורש הקמה ובדיקה חד פעמית</td></tr>
+</tbody></table></div>
+
+<h2>הדרך הפשוטה: Google Forms</h2>
+<p>ב-Google Forms, בלשונית התשובות, יש כפתור לקישור ל-Google Sheets, ומאותו רגע כל תשובה נכנסת לגיליון לבד. זה עובד מצוין לסקר או לטופס פנימי. לטופס לידים באתר זה פחות מתאים, כי הטופס לא נראה חלק מהאתר, וקשה להוסיף מייל אישור ממותג או התראה חכמה.</p>
+
+<h2>הדרך הגמישה: webhook ל-Make, צעד אחר צעד</h2>
+<ol>
+<li><b>מכינים גיליון.</b> שורה ראשונה עם כותרות: תאריך, שם, טלפון, מייל, הודעה ומקור. אפשר גם להעתיק את <a href="#template">התבנית החינמית</a>.</li>
+<li><b>יוצרים תרחיש ב-Make.</b> מוסיפים מודול Webhooks מסוג Custom webhook, נותנים לו שם ומעתיקים את הכתובת שנוצרה.</li>
+<li><b>מדביקים את הכתובת בטופס.</b> ב-Elementor Pro: בהגדרות הטופס, תחת Actions After Submit, מוסיפים Webhook ומדביקים את הכתובת. בפלטפורמות אחרות מחפשים בהגדרות הטופס את המילה webhook או חיבור ל-Make.</li>
+<li><b>שולחים טופס בדיקה.</b> כך Make לומד את מבנה השדות. כדאי למלא את כל השדות, כדי שכולם יופיעו במיפוי.</li>
+<li><b>מוסיפים Google Sheets ואז Add a Row.</b> בוחרים את הגיליון ומחברים כל שדה מהטופס לעמודה שלו. בעמודת התאריך כדאי להשתמש בנוסחה <code dir="ltr">formatDate(now; "DD/MM/YYYY HH:mm"; "Asia/Jerusalem")</code>, כדי שהשעה תהיה לפי שעון ישראל.</li>
+<li><b>מוסיפים Gmail ואז Send an Email.</b> מייל התראה אליכם עם כל הפרטים, ואם תרצו, גם מייל אישור לפונה.</li>
+<li><b>מפעילים ובודקים שוב.</b> שולחים טופס אמיתי מהאתר, מהנייד ומהמחשב, ובודקים שהשורה והמייל הגיעו.</li>
+</ol>
+
+<h2>טיפים שחוסכים כאב ראש</h2>
+<ul>
+<li><b>שדה מלכודת לבוטים.</b> שדה מוסתר שאדם לא רואה. אם הוא מולא, זה בוט, ופילטר ב-Make עוצר את הפנייה.</li>
+<li><b>טלפון בפורמט אחד.</b> אנשים כותבים 050-1234567, 0501234567 או +972. כדאי לאחד פורמט לפני השמירה, כדי שחיפוש ווואטסאפ יעבדו.</li>
+<li><b>כפילויות.</b> אם אותו אדם שולח פעמיים, אפשר לזהות לפי מייל או טלפון ולהוסיף הערה במקום שורה חדשה.</li>
+<li><b>הרשאות.</b> הגיליון צריך להיות בחשבון הגוגל של העסק, והחיבור ב-Make מאותו חשבון.</li>
+<li><b>התראה על תקלה.</b> מוסיפים טיפול בשגיאות, כדי לקבל מייל אם משהו נשבר.</li>
+</ul>
+<p>רוצים גם מענה אוטומטי ותזכורות מעקב? המשך טבעי הוא <a href="/automation/guides/lead-response/">המדריך למענה מהיר לפניות</a>.</p>
+
+  <div class="cta-box">
+    <h2>רוצים שזה יעבוד אצלכם השבוע?</h2>
+    <p>אני בונה את התהליך בחשבונות שלכם, בודק אותו עם נתונים אמיתיים ומשאיר מדריך כתוב. תשלום חד פעמי, ומחיר סגור לפני שמתחילים.</p>
+    <div class="cta-row"><a class="btn btn-light" href="/automation/#contact">לשיחה קצרה</a><a class="btn btn-outline" href="/automation/">אוטומציה לפי תחום</a></div>
+  </div>
+  <h2>שאלות נפוצות</h2>
+  <div class="faq"><details><summary>זה עובד גם עם Contact Form 7 או WPForms?</summary><p>ברוב תוספי הטפסים לוורדפרס יש אפשרות, מובנית או דרך תוסף נוסף, לשלוח את הטופס לכתובת webhook. משם העבודה ב-Make זהה.</p></details><details><summary>אפשר לעשות את זה בלי Make?</summary><p>כן, עם Google Apps Script או עם החיבור של בונה האתר. היתרון של Make הוא שבמקום אחד יש גם מיילים, התראות, סינון וטיפול בשגיאות, בלי לכתוב קוד.</p></details><details><summary>מה קורה אם התרחיש ב-Make כבוי לרגע?</summary><p>Make שומר בקשות שמגיעות ל-webhook בתור, ומעבד אותן כשהתרחיש פעיל שוב. בכל זאת כדאי להשאיר גם את מייל ההתראה המקורי של הטופס.</p></details><details><summary>כמה פניות אפשר לקבל בתוכנית החינמית?</summary><p>בתרחיש של webhook, שורה בגיליון ומייל התראה, כל פנייה צורכת בערך 3 קרדיטים, כלומר בערך 300 פניות בחודש מתוך 1,000 הקרדיטים.</p></details></div>
+  <h2 class="src-h">מקורות</h2>
+  <ul class="sources"><li><a href="https://developers.elementor.com/docs/form-actions/" rel="noopener">Elementor: Form actions</a></li><li><a href="https://www.make.com/pricing" rel="noopener">Make: עמוד המחירים</a></li></ul>
+</div></div></article>
+<section class="section alt" id="more"><div class="wrap">
+  <div class="sec-h"><span class="eyebrow">עוד מדריכים</span><h2>להמשיך לקרוא</h2></div>
+  <div class="hub-cards"><a class="hub-card" href="/automation/guides/lead-response/"><span class="n"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><h3>מענה מהיר לפניות מהאתר: איך לא לפספס אף ליד</h3><p>מה אומרים המחקרים על זמן מענה, ואיך מקימים מענה אוטומטי לכל פנייה.</p><span class="go">6 דקות קריאה ←</span></a><a class="hub-card" href="/automation/guides/make-for-beginners/"><span class="n"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><h3>Make למתחילים: האוטומציה הראשונה שלכם</h3><p>המושגים החשובים, המחירים, ואוטומציה ראשונה שאפשר לבנות בשעה.</p><span class="go">7 דקות קריאה ←</span></a></div>
+  <div style="margin-top:28px"><div class="niches"><a href="/automation/clinics/"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.6a5 5 0 0 0-8.8-3.2 5 5 0 0 0-8.8 3.2c0 5.4 8.8 11.4 8.8 11.4s8.8-6 8.8-11.4z"/><path d="M3.5 12h4l2-3 3 6 2-3h6"/></svg>קליניקות ומרפאות</a><a href="/automation/accountants/"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 18h4"/></svg>משרדי רואי חשבון</a><a href="/automation/lawyers/"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M7 21h10M5 7h14"/><path d="m5 7-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"/></svg>משרדי עורכי דין</a><a href="/automation/fitness/"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7v10M3 9.5v5M18 7v10M21 9.5v5M6 12h12"/></svg>סטודיו כושר, פילאטיס ויוגה</a><a href="/automation/real-estate/"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>מתווכי נדל״ן</a></div></div>
+</div></section>
+<section class="section" id="template"><div class="wrap magnet">
+  <div class="magnet-side">
+    <span class="eyebrow">מתנה לעסק שלכם</span>
+    <h2>תבנית חינם: מעקב לידים <span style="white-space:nowrap">ב-Google Sheets</span></h2>
+    <p>גיליון מוכן לעבודה: כל פנייה בשורה אחת עם סטטוס ותאריך מעקב, סימון אדום למעקבים שבאיחור, ודשבורד שמראה מאיפה מגיעים הלקוחות שנסגרים.</p>
+    <ul class="magnet-list"><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>רשימות נפתחות למקור ולסטטוס</li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>סימון אוטומטי של מעקבים באיחור</li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>דשבורד: לידים לפי חודש ומקור, ואחוז סגירה</li></ul>
+    <div class="sheet-prev" aria-hidden="true"><div class="sp-h"><span>שם</span><span>סטטוס</span><span>מעקב</span></div><div><span>דנה כהן</span><span><span class="pill">חדש</span></span><span class="due today">היום</span></div><div><span>אבי טל</span><span><span class="pill warm">נוצר קשר</span></span><span class="due late">באיחור</span></div><div><span>נועה כץ</span><span><span class="pill ok">נסגר</span></span><span class="due"></span></div></div>
+  </div>
+  <div class="form-card">
+    <form id="magnetForm" novalidate>
+      <div class="form-grid">
+        <div class="field"><label for="m-name">שם</label><input id="m-name" name="name" required autocomplete="given-name"></div>
+        <div class="field"><label for="m-email">מייל <small>(לשם נשלח הקישור)</small></label><input id="m-email" name="email" type="email" required autocomplete="email" placeholder="name@example.com"></div>
+        <div class="field full"><label for="m-biz">סוג העסק <small>(לא חובה)</small></label><input id="m-biz" name="business" autocomplete="organization" placeholder="למשל: קליניקה, משרד, סטודיו"></div>
+      </div>
+      <div class="hp" aria-hidden="true"><label for="m-web">אתר</label><input id="m-web" name="website" tabindex="-1" autocomplete="off"></div>
+      <label class="check"><input type="checkbox" name="consent" value="yes"><span>אשמח לקבל מדי פעם טיפים ועדכונים במייל. אפשר להסיר בכל רגע.</span></label>
+      <button class="btn btn-primary" id="magnetBtn" type="submit">שלחו לי את התבנית</button>
+      <p class="consent" style="margin-top:12px">המייל משמש לשליחת התבנית, וטיפים רק אם סימנתם. הפרטים לא מועברים לאף אחד. לבקשת מחיקה: <a href="mailto:yahavmor77@gmail.com">yahavmor77@gmail.com</a></p>
+      <div id="magnetStatus" class="status" role="status" aria-live="polite" hidden></div>
+    </form>
+  </div>
+</div></section>
+<script>window.LPM={"source": "מדריך: איך לחבר טופס באתר ל-Google Sheets"};</script>
+</main>
+<footer class="foot"><div class="wrap">
+  <div><h3>יהב מור · אוטומציות לעסקים</h3><p>מערכות לידים, תזכורות ומעקבים ב-Make, שמחוברות לכלים שכבר יש לכם: טופס, Google Sheets, Gmail ווואטסאפ.</p>
+    <ul style="margin-top:12px"><li><a href="tel:+972543441067">054-3441067</a></li><li><a href="mailto:yahavmor77@gmail.com">yahavmor77@gmail.com</a></li><li><a href="https://wa.me/972543441067">וואטסאפ</a></li></ul></div>
+  <div><h3>לפי תחום</h3><ul><li><a href="/automation/clinics/">אוטומציה לקליניקות ומרפאות</a></li><li><a href="/automation/accountants/">אוטומציה למשרדי רואי חשבון</a></li><li><a href="/automation/lawyers/">אוטומציה למשרדי עורכי דין</a></li><li><a href="/automation/fitness/">אוטומציה לסטודיו כושר, פילאטיס ויוגה</a></li><li><a href="/automation/real-estate/">אוטומציה למתווכי נדל״ן</a></li></ul></div>
+  <div><h3>עוד</h3><ul><li><a href="/automation/guides/">מדריכים</a></li><li><a href="https://yahav-automations.netlify.app">האתר הראשי</a></li><li><a href="https://or-clinic-demo.netlify.app">קליניקת דמו חיה</a></li><li><a href="https://yahavmor.github.io/#he">תיק עבודות</a></li><li><a href="https://www.linkedin.com/in/yahav-mor-566291270/">LinkedIn</a></li></ul></div>
+  <p class="copy">© 2026 יהב מור. הפרטים שנשלחים בטופס משמשים רק כדי לחזור אליכם.</p>
+</div></footer>
+<div class="mbar"><a class="btn btn-wa" href="https://wa.me/972543441067"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.7-5.2A8.5 8.5 0 1 1 21 12z"/></svg>וואטסאפ</a><a class="btn btn-primary" href="/automation/#contact">השארת פרטים</a></div>
+
+<script src="/automation/assets/lp.js?v=3" defer></script>
+</body>
+</html>

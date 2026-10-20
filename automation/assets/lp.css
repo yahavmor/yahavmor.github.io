@@ -229,3 +229,33 @@ main [id]{scroll-margin-top:84px}
 .check{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink-2);margin:2px 0 16px;cursor:pointer}
 .check input{margin-top:3px;width:18px;height:18px;accent-color:var(--teal);flex:none}
 @media (max-width:900px){.magnet{grid-template-columns:1fr}.sheet-prev{display:none}}
+
+/* guides */
+.article-sec{padding-top:40px}
+.article{max-width:780px;margin:0 auto}
+.article h1{font-size:clamp(32px,4.6vw,48px);margin:10px 0 14px}
+.article .lead{font-size:20px;color:var(--ink-2)}
+.article h2{font-size:clamp(24px,3vw,30px);margin:40px 0 12px}
+.article p,.article li{font-size:18px;line-height:1.8;color:var(--ink-2)}
+.article li{margin-bottom:8px}
+.article ol,.article ul{padding-inline-start:22px}
+.article b{color:var(--ink)}
+.article code{font-size:14.5px;background:#EEF1F6;border-radius:6px;padding:2px 6px;word-break:break-word}
+.article blockquote{margin:16px 0;padding:16px 20px;background:var(--paper);border:1px solid var(--line);border-inline-start:4px solid var(--teal-2);border-radius:12px;color:var(--ink);font-size:17px}
+.crumbs{font-size:14px;color:var(--ink-3)}
+.crumbs a{color:var(--ink-3)}
+.meta-line{font-size:14.5px!important;color:var(--ink-3)!important;margin:0 0 8px}
+.callout{background:var(--teal-tint);border-radius:14px;padding:16px 20px;color:var(--ink)!important;font-weight:600}
+.tbl-wrap{overflow-x:auto;margin:14px 0}
+table.cmp{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:12px;font-size:15.5px}
+table.cmp th{background:var(--navy);color:#fff;font-weight:600;text-align:start;padding:10px 12px}
+table.cmp td{padding:10px 12px;border-top:1px solid var(--line);vertical-align:top;color:var(--ink-2)}
+.cta-box{margin:44px 0 10px;background:var(--navy);color:#fff;border-radius:20px;padding:28px}
+.cta-box h2{margin:0 0 10px;color:#fff}
+.cta-box p{color:#C9D2E3}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.btn-light{background:#fff;color:var(--navy)}
+.btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45)}
+.src-h{font-size:20px!important}
+.sources{font-size:15px}
+.sources li{font-size:15px!important}
